@@ -1,0 +1,162 @@
+---
+layout: post
+title: Zarządzanie wydaniami aplikacji - Git workflow
+date: 2019-05-08 21:00:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- DevOps
+- Na dłużej
+- Polski
+tags:
+- deploy
+- git
+- workflow
+meta:
+  _edit_last: '1'
+  wpbf_options: a:1:{i:0;s:13:"layout-global";}
+  wpbf_sidebar_position: global
+  _yoast_wpseo_primary_category: '13'
+  _yoast_wpseo_content_score: '90'
+  _yoast_wpseo_focuskw: Zarządzanie wydaniami
+  _yoast_wpseo_metadesc: Jak zorganizować zarządzanie wydaniami aplikacji w systemie
+    kontroli wersji? Mechanizm umożliwiający elastyczny dobór zadań do wgrania na
+    staging/produkcję.
+  _yoast_wpseo_linkdex: '75'
+  _thumbnail_id: '229'
+author:
+  login: bartoszkostaniak_k9gtfpdt
+  email: bartoszkostaniak@gmail.com
+  display_name: nitrooos
+  first_name: ''
+  last_name: ''
+permalink: "/2019/05/zarzadzanie-wydaniami-git/"
+excerpt: Klient zmienia co chwilę zdanie co powinno zostać wgrane na serwer stagingowy
+  albo produkcję? W dzisiejszym wpisie proponuję mechanizm zarządzania wydaniami w
+  Gicie, radzący sobie z takimi ciężkimi przypadkami! :)
+---
+<p><!-- wp:paragraph --></p>
+<p>Nieodłącznym elementem naszej ciężkiej, programistycznej pracy jest wgrywanie ukończonych zadań na serwery testowe/przedprodukcyjne, a w końcu na produkcję. Jeśli jesteśmy szczęściarzami, to zadanie po przejściu etapu testów po stronie klienta trafia jak najszybciej na staging a następnie prosto na produkcję. W takim przypadku zarządzanie wydaniami sprowadza się do uaktualniania gałęzi odpowiadających stanom poszczególnych serwerów, np. "develop", "staging" i "production". Niestety, w swojej praktyce często spotykałem sytuację, gdy klient zmieniał zdanie co do kolejności wypuszczania kolejnych zadań. Z dnia na dzień. Z serwera na serwer. Zbiór zadań znajdujących się na serwerze testowym był znacząco różny od zbioru zadań z przedprodukcji. Ten z kolei różnił się od ostatecznej wersji tego, co powinno zostać wgrane na produkcję.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>To właśnie z potrzeby bezkonfliktowej współpracy w takich warunkach zrodził się proponowany przeze mnie schemat zarządzania wydaniami. Ma on swoją reprezentację w odpowiedniej organizacji gałęzi w systemie kontroli wersji, w naszym przypadku będzie to git.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Zarządzanie wydaniami w praktyce</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dzisiejszy wpis jest zapiskiem zarządzania gałęziami dla standardowego zadania (nazwijmy je "task 1") przy zachowaniu opisanych powyżej założeń:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li>w każdej chwili chcemy mieć możliwość wgrania <em>dowolnego</em> zadania na serwer testowy (i tylko jego)</li>
+<li>przygotowując wgrywkę (ang. <em>deploy</em>) na serwer przedprodukcyjny chcemy mieć możliwość wyboru dowolnego zbioru zadań przetestowanych na serwerze testowym</li>
+<li>to samo co powyżej dotyczy przygotowania wgrywki na serwer produkcyjny</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3 id="mce_6">Od początku - tworzymy gałąź dla zadania!</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Zakładamy, że główną gałęzią, odzwierciedlającą stan serwera produkcyjnego (ang. <em>live</em>) jest gałąź <em>master</em>. W tym scenariuszu tworzymy nową gałąź dla zadania (nazwijmy ją <em>task_1</em>), wychodzącą z gałęzi <em>master</em>:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">git checkout master<br />git pull origin master<br />git checkout -b task_1</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ważne jest, aby uaktualnić lokalny stan gałęzi <em>master</em>, najprościej zrobić to poprzez wydanie polecenia "git pull origin master". Dzięki temu mamy pewność, że pracujemy na aktualnej wersji kodu napędzającej produkcję.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Praca nad zadaniem</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Od tej pory możemy pracować spokojnie nad zadaniem <em>task_1.</em> W razie potrzeby rozpoczęcia prac nad kolejnym zadaniem powtarzamy procedurę, tworząc nową gałąź i wychodząc ponownie z <em>master</em>'a. Warto w tym miejscu zaznaczyć, że nie należy traktować gita jako narzędzia do archiwizacji wersji kodu "co jakiś czas", "po skończeniu zadania" czy "na koniec dnia". Róbmy commity często, zawierajmy w nich niewielkie, spójne zmiany kodu oraz opatrzmy je krótkim, jasnym komentarzem. Jest to bardzo pomocne w przypadku, gdy zmiany z naszego zadania powodują powstanie błędów regresyjnych. Niewielkie, dobrze opisane commity pomogą odnaleźć dokładną wersję kodu powodującą powstanie błędu. Łatwiejsze będzie także zrozumienie przyczyny jego powstania i jej usunięcie.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Wgrywka na serwer testowy (opcjonalnie)</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Sprawdzonym przeze mnie schematem jest utrzymywanie serwera testowego, na którym klienci mogą testować nasze zadania. Serwer taki z założenia służy do testowania jednego zadania "na raz". Ma to znaczenie, ponieważ chcemy mieć maksymalną dowolność w doborze zadań, mających być następnie wgranymi na serwer przedprodukcyjny. Nie chcemy po prostu mergować ich do wspólnej gałęzi, tak, aby pozostały niezależne od siebie. Wadą jest oczywiście to, że serwer taki odzwierciedla w danej chwili jedynie stan produkcji + maksymalnie jednego nowego zadania. Z praktyki wiem jednak też, że nie jest to duża wada, szczególnie jeśli skonfigurujemy narzędzie CD (ang. <em>Continous Delivery</em>). Można zrobić to za pomocą np. Jenkinsa, zewnętrznego serwisu (<a href="https://travis-ci.com">Travis CI</a>, <a href="http://codeship.com">Codeship</a>, <a href="https://circleci.com">Circle CI</a>) bądź własnych skryptów, umożliwiając wgrywanie zmian w ciągu kilku minut. Ważne jest, aby <strong>nie mergować takich zadań do żadnej wspólnej gałęzi</strong>. Wgrywanie zmian na serwer testowy powinno odbywać się poprzez wybór gałęzi z zadaniem (czyli np. <em>task_1</em> lub <em>task_2</em>). </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Pozostaje kwestia ograniczenia dostępu do takiego serwera, o czym napisałem kilka słów w osobnym <a href="https://nitrooos.pl/2019/04/mechanizm-uwierzytelniania-na-serwerach-przedprodukcyjnych/">wpisie</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Przygotowanie wgrywki na serwer przedprodukcyjny</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Aby przygotować wgrywkę na serwer przedprodukcyjny korzystamy z dedykowanej gałęzi, w naszym przykładzie nazwanej <em>rc_1</em>. Takich gałęzi, służących do wgrywania zmian na serwer przedprodukcyjny może być więcej w razie potrzeby. Osobiście, standardowo nazywam je <em>rc_2</em>, <em>rc_3</em> itd. Są one przydatne w sytuacji, gdy na staging wgrano np. zmiany składające się na zadania 1, 2 i 3, po czym klient chce wgrać na produkcję tylko zadania 1 i 3. W takim przypadku tworzymy np. na gałęzi <em>rc_2</em> (zawsze wychodzącej z aktualnego stanu gałęzi podstawowej, <em>master</em>!) nowy release, składający się tylko z zadań 1 i 3. Więcej o takim przypadku napisałem w kolejnym punkcie tego wpisu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Przygotowanie wgrywki na serwer przedprodukcyjny sprowadza się do zmergowania zadań, które mają się w nim znaleźć do odpowiedniej gałęzi (najczęściej <em>rc_1</em>). Wgrywany na serwer jest aktualny stan wybranej gałęzi <em>rc_*</em>. Na tym etapie możemy dobrać dowolne spośród gotowych zadań.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Testowanie na serwerze przedprodukcyjnym</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Wgrywanie zmian na produkcję musi być poprzedzone przetestowaniem ich na serwerze przedprodukcyjnym. Najlepiej aby zajął się tym profesjonalny tester manualny. Świetnie sprawdzają się napisane specjalnie do tego celu testy automatyczne (end-to-end). Do ich stworzenia polecić mogę np. narzędzie <a href="https://www.cypress.io/">cypress</a>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":4} --></p>
+<h4>Klient zmienił zdanie! Mamy wgrać na produkcję inny zbiór zadań...</h4>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Czasami zdarza się, że priorytet jednego z zadań/część zadań wgranych na serwer przedprodukcyjny ulega zwiększeniu. Powinniśmy w takim wypadku wgrać je na produkcję <em>jak najszybciej</em>. Dla przykładu, wgrano na serwer przedprodukcyjny zadania 1, 2 oraz 3. Teraz jednak na produkcję powinny zostać wgrane tylko zadania 1 i 3. Prawidłowym postępowaniem w takiej sytuacji jest przygotowanie nowego release'u np. na gałęzi <em>rc_2</em>, zawierającego tylko zadania 1 i 3 (uzyskały większy priorytet), dokonanie wgrywki na serwer przedprodukcyjny z gałęzi <em>rc_2</em> i testowanie. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dlaczegóżby jednak nie wgrać od razu na produkcję zadań 1 i 3, szczególnie jeśli zostały już przetestowane? </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Po pierwsze, nie chcemy przenosić na gałąź <em>master</em> zmian ręcznie, commit po commicie wybranych zadań. Musielibyśmy to zrobić, ponieważ gałąź <em>rc_1</em> zawiera zmiany także z zadania 2, które jednak nie powinno znaleźć się teraz na produkcji. Można to zrobić np. za pomocą komendy <em>git cherry-pick,</em> jest to jednak sposób długotrwały i podatny na błędy. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Po drugie, zadania 1 i 3 mogą być zależne zadania 2, które teraz należy pominąć. Możliwa jest więc sytuacja, w której wgrane razem zadania 1, 2 i 3 działają bez zarzutu, jednak bez zadania 2. pojawiają się błędy. Ważne jest więc, aby na produkcję <strong>wgrywać tylko stan kodu, który był już wcześniej sprawdzony</strong> na serwerze przedprodukcyjnym. Wgranie tylko zadań 1 i 3 w naszym przykładzie byłoby błędem. Jest tak dlatego, że sprawdzone zostało tylko działanie ich razem z zadaniem 2. Nie oznacza to automatycznie, że również bez niego wszystko będzie działać poprawnie.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Wgrywka na produkcję</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Ostatnim etapem jest wgranie zmian na produkcję, którego dokonujemy na żądanie klienta oraz, powtórzę raz jeszcze, <strong>tylko po wcześniejszym przetestowaniu identycznej wersji kodu na serwerze przedprodukcyjnym</strong>. Rozpoczynamy oczywiście od zmergowania gałęzi zawierającej wersję kodu testowaną na serwerze przedprodukcyjnym (np. <em>rc_1</em>) do gałęzi <em>master</em>. Następnie proponuję tagowanie wersji na gałęzi <em>master</em>, tak, aby kolejne release'y kodu były uporządkowane, ponumerowane i odpowiednio opisane. Do stworzenia tagów w Gicie służy komenda:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">git tag -a v0.1 -m 'Minimal Valueable Product'<br /></pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Natomiast aby wgrać je do zdalnego repozytorium możemy posłużyć się komendą:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:preformatted --></p>
+<pre class="wp-block-preformatted">git push origin v0.1</pre>
+<p><!-- /wp:preformatted --></p>
+<p><!-- wp:paragraph --></p>
+<p>Narzędzie służące do przygotowania wgrywki na produkcję powinno akceptować nazwę tagu jako parametr. Dzięki temu wgrywane będą tylko przygotowane w tym celu, odpowiednie wersje kodu.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Zarządzanie wydaniami na konkretnym przykładzie</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Pokażę jeszcze przykład zarządzania wydaniami na przykładzie 4 zadań, 2 wgrywek na serwer przedprodukcyjny i 2 wgrywek na produkcję. Sytuację przedstawia poniższy schemat:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"id":218,"align":"center"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter"><img src="{{ site.baseurl }}/assets/workflow-384x1024.png" alt="Zarządzanie wydaniami w systemie kontroli wersji - historia prac nad zadaniami" class="wp-image-218" /><br />
+<figcaption>Przykładowa historia prac nad zadaniami i zarządzania ich gałęziami</figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Gałęzie <em>rc_1</em> i <em>rc_2</em> służą do przygotowania wgrywek na przedprodukcyjny serwer, gałąź <em>master</em> odzwierciedla stan kodu na produkcji, gałęzie z zadaniami nazywają się <em>task_1</em>, <em>task_2</em>, <em>task_3</em> i <em>task_4</em>. Linia przerywana czerwona oznacza okres testowania zadania na serwerze testowym. Linia przerywana szara oznacza, że zadanie jest gotowe, ale aktualnie nie jest wgrane na serwer testowy. Jak pamiętamy, może na nim być jednocześnie wgrane tylko 1 zadanie. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading {"level":3} --></p>
+<h3>Analiza krok po kroku</h3>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Rozpoczęto pracę nad zadaniem <em>task_1</em> (wychodząc nową gałęzią z <em>master</em>'a), ukończono pracę i wgrano na serwer testowy. W międzyczasie rozpoczęto pracę nad kolejnym zadaniem (<em>task_2</em>). Po ukończeniu pracy zostało ono wgrane na serwer testowy (zamiast zadania <em>task_1</em> - linia przerywana szara). W trakcie gdy na serwerze testowym znajdowało się zadanie <em>task_2</em>, rozpoczęto pracę nad priorytetowym zadaniem <em>task_3 (hotfix)</em>. Zadania <em>task_1</em> i <em>task_2</em> zostały zmergowane do gałęzi <em>rc_1</em>. Po zakończeniu prac nad zadaniem <em>task_3</em> i przetestowaniu go na serwerze testowym zmergowano go do gałęzi <em>rc_2</em>. Zrobiono tak, ponieważ zadanie to powinno znaleźć się na produkcji jak najszybciej, bez czekania na przetestowanie i ewentualne poprawki do zadań <em>task_1</em> i <em>task_2</em>. Z gałęzi <em>rc_2</em> wgrano kod na serwer przedprodukcyjny, przetestowano go i zmergowano do gałęzi <em>master</em>. Następnie stworzono nowy tag <em>v0.1</em> i wgrano kod na produkcję.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Dalej, zmiany z gałęzi <em>master</em> zostały włączone do gałęzi <em>rc_1</em> z zadaniami <em>task_1</em> i <em>task_2</em> (ważne!). Po przetestowaniu, zmergowano gałąź <em>rc_1</em> do <em>master</em>, stworzono nowy tag <em>v0.2</em> i wgrano kod na produkcję.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Na dzisiaj to już wszystko, mam nadzieję, że przedstawiłem jasno proponowany przeze mnie schemat zarządzania wydaniami aplikacji w praktyce. Oraz że komuś z Was się on przyda w codziennej pracy. A może macie lepsze/inne sprawdzone schematy zarządzania gałęziami i wgrywkami? Zapraszam do dyskusji w komentarzach!</p>
+<p><!-- /wp:paragraph --></p>
