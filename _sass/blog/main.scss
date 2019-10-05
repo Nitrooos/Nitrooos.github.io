@@ -1,0 +1,12 @@
+.blog {
+  &__post-lead {
+    border-bottom: 1px solid #dedee5;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__post-title {
+    font-weight: $font-weight-bold;
+    margin-bottom: 20px;
+  }
+}
