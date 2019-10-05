@@ -1,0 +1,11 @@
+@import './colors';
+
+.header {
+  background: $bg-dark;
+  padding: 10px;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+}
