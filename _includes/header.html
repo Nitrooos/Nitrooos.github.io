@@ -1,14 +1,22 @@
 <header class="header">
-  <div class="header__content app-content">
-    <div class="header__logo">
-      <a href="/">
-        <h1>Nitrooos</h1>
-      </a>
-      <h3>wiarygodny deweloper</h3>
+  <div class="header__content app__content">
+    <div>
+      <h1 class="header__title">
+        <a
+          class="app__link"
+          href="/">
+          Nitrooos
+        </a>
+      </h1>
+      <h5 class="header__subtitle">wiarygodny deweloper</h5>
     </div>
-    <nav>
+    <nav class="header__navigation">
       {% for item in site.data.navigation %}
-        <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+        <a
+          class="app__link"
+          href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+          {{ item.name }}
+        </a>
       {% endfor %}
     </nav>
   </div>

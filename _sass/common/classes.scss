@@ -1,6 +1,16 @@
+@import './colors';
+
 .app {
-  &-content {
+  &__content {
     max-width: 1300px;
     margin: 0 auto;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &, &:hover, &:focus, &:active, &:visited {
+      color: $text-link;
+    }
   }
 }
