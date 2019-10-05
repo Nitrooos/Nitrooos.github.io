@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="header__content app-content">
+    <div class="header__logo">
+      <a href="/">
+        <h1>Nitrooos</h1>
+      </a>
+      <h3>wiarygodny deweloper</h3>
+    </div>
+    <nav>
+      {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
