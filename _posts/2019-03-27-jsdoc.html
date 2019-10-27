@@ -80,7 +80,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Drugim kawałkiem do udokumentowania będzie prosty moduł, eksportujący jedną funkcję, służącą do usuwania duplikatów z tablicy obiektów:</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:code {"className":"language-javascript"} --></p>
-<pre class="wp-block-code language-javascript"><code>const unique = (list) => 
+<pre class="wp-block-code language-javascript"><code>const unique = (list) =>
   list.filter((element, index) => list.indexOf(element) === index);
 
 export {
@@ -103,15 +103,15 @@ export {
 <p>Dzięki niej wiemy już jaki tym managera miał na myśli programista. Następnie opiszmy pola klasy: _projects i _name:</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:code {"className":"language-javascript"} --></p>
-<pre class="wp-block-code language-javascript"><code>/** 
- * List of all projects which manager is responsible for 
- * @private 
- * @type {Project[]} 
+<pre class="wp-block-code language-javascript"><code>/**
+ * List of all projects which manager is responsible for
+ * @private
+ * @type {Project[]}
  */
   _projects = [];
 
-/** 
- * Name of the manager 
+/**
+ * Name of the manager
  * @private
  */
   _name;</code></pre>
@@ -123,11 +123,11 @@ export {
 <h3>Definiowanie własnego typu na potrzeby adnotacji jsdoc</h3>
 <p><!-- /wp:heading --></p>
 <p><!-- wp:code {"className":"language-javascript"} --></p>
-<pre class="wp-block-code language-javascript"><code>/** 
- * @typedef Project 
- * @prop {string} name Name of the project 
- * @prop {number} budget Current budget for the project 
- * @prop {Date} deadline Current deadline of the project 
+<pre class="wp-block-code language-javascript"><code>/**
+ * @typedef Project
+ * @prop {string} name Name of the project
+ * @prop {number} budget Current budget for the project
+ * @prop {Date} deadline Current deadline of the project
  */</code></pre>
 <p><!-- /wp:code --></p>
 <p><!-- wp:paragraph --></p>
@@ -137,7 +137,7 @@ export {
 <h3>Opisujemy konstruktor oraz metody klasy Manager</h3>
 <p><!-- /wp:heading --></p>
 <p><!-- wp:code {"className":"language-javascript"} --></p>
-<pre class="wp-block-code language-javascript"><code>/** 
+<pre class="wp-block-code language-javascript"><code>/**
  * Creates a manager
  * @param {string} name Name of the manager
  * @param {Project[]} projects List of projects
@@ -151,7 +151,7 @@ export {
 <pre class="wp-block-code language-javascript"><code>/**
  * Reduce deadline on project when DEAR CLIENT requests it
  * @param {Project} project Project to reduce deadline
- * @param {boolean} fireMalcontents Flag indicating  whether to fire 
+ * @param {boolean} fireMalcontents Flag indicating  whether to fire
  *  dissatisfied by this decision or not
  */
   reduceDeadline(project, fireMalcontents = false) { … }
@@ -236,7 +236,7 @@ export {
 <p><!-- /wp:image --></p>
 <p><!-- wp:image {"align":"center","width":815,"height":707} --></p>
 <div class="wp-block-image">
-<figure class="aligncenter is-resized"><img src="{{ site.baseurl }}/assets/16JEUXqDt3t-s1ehhs2Fxm1UAyfFG6PLTe8yCP48ebkoSnhh0S6eKEW6n1ulW8nAprjKalOg73QjK2r_wWS-HrhWSXPmyN0sdFYvy5P2c1rdGuXV7PqEAJq_3e5mplxOOKlnCXLh" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" /><br />
+<figure class="aligncenter is-resized"><img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" /><br />
 <figcaption>Moduł “application/utils” z funkcją “unique”</figcaption>
 </figure>
 </div>
