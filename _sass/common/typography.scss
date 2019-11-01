@@ -7,7 +7,7 @@ body {
   font-size: 16px;
 }
 
-figcaption, h1, h2, h3, h4, h5, p, a {
+a, figcaption, h1, h2, h3, h4, h5, li, p, pre, ul {
   color: $text-main;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -40,4 +40,22 @@ h4 {
 h5 {
   font-size: 1.1rem;
   margin: 10px 0 5px 0;
+}
+
+pre {
+  font-family: monospace;
+  margin: 1rem 0;
+
+  code {
+    background: $code-bg;
+    border-left: 10px solid $code-border;
+    display: block;
+    padding: .5rem;
+  }
+}
+
+ol, ul {
+  left: 25px;
+  list-style-type: disc;
+  position: relative;
 }
