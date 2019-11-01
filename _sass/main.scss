@@ -1,11 +1,13 @@
-.site-header {
-  border-top: 0;
-}
+@import './common/reset';
 
-.site-footer {
-  padding: 10px 0 0;
+@import './common/classes';
+@import './common/colors';
+@import './common/typography';
 
-  .contact-list {
-    margin-bottom: 0;
-  }
+@import './includes/header';
+
+@import './blog/main';
+
+.main {
+  padding: 40px 20px 80px;
 }

@@ -1,0 +1,24 @@
+.header {
+  background: $bg-dark;
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__navigation {
+    justify-content: space-between;
+    display: flex;
+  }
+
+  &__subtitle {
+    font-weight: $font-weight-bold;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    padding-bottom: 5px;
+  }
+}

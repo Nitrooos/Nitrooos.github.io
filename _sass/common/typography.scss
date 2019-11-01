@@ -1,0 +1,21 @@
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+h1, h2, h3, h4, h5, p, a {
+  color: $text-main;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 12px;
+}
