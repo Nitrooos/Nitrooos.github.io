@@ -14,7 +14,7 @@
       {% for item in site.data.navigation %}
         <a
           class="app__link"
-          href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+          href="{{ item.link }}">
           {{ item.name }}
         </a>
       {% endfor %}
