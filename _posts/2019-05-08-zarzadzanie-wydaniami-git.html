@@ -25,7 +25,7 @@ excerpt: Klient zmienia co chwilę zdanie co powinno zostać wgrane na serwer st
 </ul>
 <h3 id="mce_6">Od początku - tworzymy gałąź dla zadania!</h3>
 <p>Zakładamy, że główną gałęzią, odzwierciedlającą stan serwera produkcyjnego (ang. <em>live</em>) jest gałąź <em>master</em>. W tym scenariuszu tworzymy nową gałąź dla zadania (nazwijmy ją <em>task_1</em>), wychodzącą z gałęzi <em>master</em>:</p>
-<pre class="wp-block-preformatted">git checkout master<br />git pull origin master<br />git checkout -b task_1</pre>
+<pre>git checkout master<br />git pull origin master<br />git checkout -b task_1</pre>
 <p>Ważne jest, aby uaktualnić lokalny stan gałęzi <em>master</em>, najprościej zrobić to poprzez wydanie polecenia "git pull origin master". Dzięki temu mamy pewność, że pracujemy na aktualnej wersji kodu napędzającej produkcję.</p>
 <h3>Praca nad zadaniem</h3>
 <p>Od tej pory możemy pracować spokojnie nad zadaniem <em>task_1.</em> W razie potrzeby rozpoczęcia prac nad kolejnym zadaniem powtarzamy procedurę, tworząc nową gałąź i wychodząc ponownie z <em>master</em>'a. Warto w tym miejscu zaznaczyć, że nie należy traktować gita jako narzędzia do archiwizacji wersji kodu "co jakiś czas", "po skończeniu zadania" czy "na koniec dnia". Róbmy commity często, zawierajmy w nich niewielkie, spójne zmiany kodu oraz opatrzmy je krótkim, jasnym komentarzem. Jest to bardzo pomocne w przypadku, gdy zmiany z naszego zadania powodują powstanie błędów regresyjnych. Niewielkie, dobrze opisane commity pomogą odnaleźć dokładną wersję kodu powodującą powstanie błędu. Łatwiejsze będzie także zrozumienie przyczyny jego powstania i jej usunięcie.</p>
@@ -44,14 +44,14 @@ excerpt: Klient zmienia co chwilę zdanie co powinno zostać wgrane na serwer st
 <p>Po drugie, zadania 1 i 3 mogą być zależne zadania 2, które teraz należy pominąć. Możliwa jest więc sytuacja, w której wgrane razem zadania 1, 2 i 3 działają bez zarzutu, jednak bez zadania 2. pojawiają się błędy. Ważne jest więc, aby na produkcję <strong>wgrywać tylko stan kodu, który był już wcześniej sprawdzony</strong> na serwerze przedprodukcyjnym. Wgranie tylko zadań 1 i 3 w naszym przykładzie byłoby błędem. Jest tak dlatego, że sprawdzone zostało tylko działanie ich razem z zadaniem 2. Nie oznacza to automatycznie, że również bez niego wszystko będzie działać poprawnie.</p>
 <h3>Wgrywka na produkcję</h3>
 <p>Ostatnim etapem jest wgranie zmian na produkcję, którego dokonujemy na żądanie klienta oraz, powtórzę raz jeszcze, <strong>tylko po wcześniejszym przetestowaniu identycznej wersji kodu na serwerze przedprodukcyjnym</strong>. Rozpoczynamy oczywiście od zmergowania gałęzi zawierającej wersję kodu testowaną na serwerze przedprodukcyjnym (np. <em>rc_1</em>) do gałęzi <em>master</em>. Następnie proponuję tagowanie wersji na gałęzi <em>master</em>, tak, aby kolejne release'y kodu były uporządkowane, ponumerowane i odpowiednio opisane. Do stworzenia tagów w Gicie służy komenda:</p>
-<pre class="wp-block-preformatted">git tag -a v0.1 -m 'Minimal Valueable Product'<br /></pre>
+<pre>git tag -a v0.1 -m 'Minimal Valueable Product'<br /></pre>
 <p>Natomiast aby wgrać je do zdalnego repozytorium możemy posłużyć się komendą:</p>
-<pre class="wp-block-preformatted">git push origin v0.1</pre>
+<pre>git push origin v0.1</pre>
 <p>Narzędzie służące do przygotowania wgrywki na produkcję powinno akceptować nazwę tagu jako parametr. Dzięki temu wgrywane będą tylko przygotowane w tym celu, odpowiednie wersje kodu.</p>
 <h2>Zarządzanie wydaniami na konkretnym przykładzie</h2>
 <p>Pokażę jeszcze przykład zarządzania wydaniami na przykładzie 4 zadań, 2 wgrywek na serwer przedprodukcyjny i 2 wgrywek na produkcję. Sytuację przedstawia poniższy schemat:</p>
-<div class="wp-block-image">
-  <figure class="aligncenter"><img src="{{ site.baseurl }}/assets/workflow-384x1024.png" alt="Zarządzanie wydaniami w systemie kontroli wersji - historia prac nad zadaniami" class="wp-image-218" /><br />
+<div>
+  <figure><img src="{{ site.baseurl }}/assets/workflow-384x1024.png" alt="Zarządzanie wydaniami w systemie kontroli wersji - historia prac nad zadaniami" /><br />
     <figcaption>Przykładowa historia prac nad zadaniami i zarządzania ich gałęziami</figcaption>
   </figure>
 </div>

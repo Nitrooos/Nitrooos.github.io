@@ -4,12 +4,11 @@ position: Redaktor
 short_name: nitrooos
 title: Cześć, jestem Nitrooos.
 ---
-<div class="wp-block-image">
-  <figure class="alignright is-resized">
+<div>
+  <figure>
     <img
       src="{{ site.baseurl }}/assets/nitrooos.png"
       alt=""
-      class="wp-image-99"
       width="188"
       height="188" />
     <br />

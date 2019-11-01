@@ -18,12 +18,12 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Jak często zdarzało się Wam tracić czas na zrozumienie kodu napisanego tak niejasno, że jego jakość ociera się o sabotaż? Czy nie byłoby wspaniale mieć chociaż opis jego interfejsu, wiedzieć co pożera na wejściu oraz co oznaczają dane produkowane przez niego na wyjściu? To właśnie dla ułatwienia życia programistom w takich (i innych!) przypadkach powstały różne sposoby umieszczania w kodzie (najczęściej w formie komentarze) specjalnych adnotacji, służących opisowi działania danego kawałka kodu (funkcji, modułu, klasy itd). Jednym z takich narzędzi jest dostępny dla JavaScript program jsdoc. </p>
 <h2>Czym jest jsdoc?</h2>
 <p>jsdoc to program, który możemy zainstalować używając managera paczek npm za pomocą prostej komendy:</p>
-<pre class="wp-block-preformatted">npm install jsdoc --save-dev<br /></pre>
+<pre>npm install jsdoc --save-dev<br /></pre>
 <p>Potrafi wykrywać on specjalne adnotacje w kodzie JavaScript, umieszczone jako część komentarza (pomiędzy znakami /** tutaj zawartość do zinterpretowania przez jsdoc */). Adnotacje te opisują np. znaczenie i typy poszczególnych parametrów wywołania funkcji, jej wartość i typ, opisują zastosowanie i zakres odpowiedzialności klasy itp. Wachlarz możliwości jest naprawdę szeroki (co, choć częściowo, postaram się pokazać w tym wpisie). </p>
 <p>Adnotacje w tym kształcie już okazują się przydatne dla programistów, którzy będą pracowali nad naszym kodem w przyszłości, ponieważ lepiej i szybciej zrozumieją intencje autora, to jednak nie wszystko! Narzędzia tego możemy użyć do <strong>generowania dokumentacji kodu</strong> na podstawie samych adnotacji i treści w nich zawartych. Możemy robić to w sposób zautomatyzowany, w formacie gotowych do przeglądania stron HTML. Jakie to ma zastosowanie? Wyobraźmy sobie, że pracujemy nad projektem, z którego potencjalnie (od strony programistycznej) korzystać może wiele osób/organizacji. Interesować je będzie możliwość wykorzystania naszego kodu, jednak bez wgłębiania się w szczegóły implementacji. W takiej sytuacji udostępnienie im dokumentacji jest zbawienne, a dzięki jsdoc możemy wygenerować ją w każdej chwili.</p>
 <h2>Przejdźmy do konkretów!</h2>
 <p>Zaczniemy od stworzenia kodu składającego się z deklaracji klasy wraz z jej metodami oraz prostego modułu i typu. Poniższy kod jest wyłącznie przykładowy, nie należy wyciągać na jego podstawie wniosków dotyczących spojrzenia autora na świat ;) Zadeklarowana zostanie prosta klasa “Manager” z kilkoma metodami, umożliwiającymi obiektom tej klasy sprawne zarządzanie projektami w organizacji:</p>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     class Manager {
       _projects = [];
@@ -38,7 +38,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 </pre>
 <p>Oczywiście w przypadku tak prostej klasy możemy domyśleć się jak (mniej więcej) powinny zachowywać się zadeklarowane metody. Nie wiemy jednak dokładnie w jaki sposób zmieniają one stan obiektu oraz czy zwracają jakąś wartość. Dodatkowo same nazwy mogą okazać się mylące lub nieścisłe (słowo “Manager” oznaczać może przecież zarządców zupełnie w zupełnie różnych kontekstach). Dodatkowo, w prawdziwych projektach, kod potrafi być znacznie bardziej złożony. </p>
 <p>Drugim kawałkiem do udokumentowania będzie prosty moduł, eksportujący jedną funkcję, służącą do usuwania duplikatów z tablicy obiektów:</p>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     const unique = (list) =>
       list.filter((element, index) => list.indexOf(element) === index);
@@ -51,13 +51,13 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Tutaj sprawa jest jeszcze prostsza, ale nawet mając podaną nazwę funkcji trzeba się na chwilę wczytać w jej implementację, aby zrozumieć jej sposób działania, typ parametru i wartość.</p>
 <h2>Dodajmy pierwsze adnotacje jsdoc!</h2>
 <p>Zaczniemy od klasy Manager, poprzez dodanie nad jej definicją jednolinijkowej adnotacji:</p>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     /** Class representing a standard manager in your company */
   </code>
 </pre>
 <p>Dzięki niej wiemy już jaki tym managera miał na myśli programista. Następnie opiszmy pola klasy: _projects i _name:</p>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     /**
       * List of all projects which manager is responsible for
@@ -75,7 +75,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 </pre>
 <p>Pierwsza adnotacja jaka się pojawia to @private i oznacza ona składową prywatną klasy. Jest to zarówno informacja dla programisty używającego tej klasy, jak i dla programu generującego dokumentację, o czym się wkrótce przekonamy. Drugą adnotacją jest @type. Dzięki niej wiemy, że typem składowej _projects jest tablica obiektów typu Project. Czym jednak jest Project? jsdoc oczywiście również nie ma pojęcia, dlatego jest on kolejną rzeczą jaką musimy zdefiniować.</p>
 <h3>Definiowanie własnego typu na potrzeby adnotacji jsdoc</h3>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     /**
       * @typedef Project
@@ -87,7 +87,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 </pre>
 <p>Adnotacja @typedef służy do definiowania typów użytkownika, jak widać przyjmuje ona jeden argument, którym jest nazwa typu. Z kolei za pomocą adnotacji @prop możemy definiować jakie pola (wraz z ich typami!) wchodzą w skład nowego typu. Po nazwie adnotacji następuje typ pola w nawiasach klamrowych, np . { string }, potem nazwa pola i jego krótki opis. Od tej pory możemy używać nowo zdefiniowanego typu w kolejnych adnotacjach, a jsdoc prawidłowo go rozpozna i wygeneruje w dokumentacji link do definicji tego typu. Nieźle! Prawdziwa siła tego narzędzia ujawnia się jednak dopiero przy opisywaniu funkcji i metod, dlatego też opiszmy konstruktor klasy Manager.</p>
 <h3>Opisujemy konstruktor oraz metody klasy Manager</h3>
-<pre class="wp-block-code language-javascript">
+<pre>
   <code>
     /**
       * Creates a manager
@@ -98,7 +98,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
   </code>
 </pre>
 <p>Pierwsza linia adnotacji pełni zawsze domyślnie rolę krótkiego opisu. Możemy wprowadzić go także w wielu liniach za pomocą adnotacji @description. Następnie wskazujemy parametry konstruktora, wraz z ich typami, nazwami i krótkimi opisami, analogicznie jak ma to miejsce przy definiowaniu typu. Tym razem jednak definiujemy parametry metody, a nie pola typu, dlatego używamy adnotacji @param. Kolejne metody mogą zostać opisane analogicznie:</p>
-<pre class="wp-block-code language-javascript"><code>/**
+<pre><code>/**
  * Reduce deadline on project when DEAR CLIENT requests it
  * @param {Project} project Project to reduce deadline
  * @param {boolean} fireMalcontents Flag indicating  whether to fire
@@ -121,13 +121,13 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Zwróć uwagę, że możemy korzystać zarówno z typów użytkownika, zdefiniowanych wcześniej, jak i z typów wbudowanych w JavaScript (string, boolean, Date itp). Jedyną nową adnotacją jest bardzo użyteczna @return, służąca do definiowania wartości funkcji/metody, wraz z jej typem i opisem.</p>
 <p>To nie było takie trudne! Dlatego teraz zajmiemy się opisem modułu application/utils, eksportującego prostą funkcję.</p>
 <h3>Dokumentowanie modułu application/utils</h3>
-<pre class="wp-block-code language-javascript"><code>/**
+<pre><code>/**
  * @module application/utils
  * @description
  * This is a module with some helper functions
  */</code></pre>
 <p>Taka adnotacja (@module) definiuje moduł w aplikacji, to znaczy jednostkę kodu eksportującą pewne wartości za pomocą instrukcji export. Jedyną funkcję w ramach tego modułu (dla przypomnienia, jest to funkcja unique, usuwająca duplikaty z listy) można zdefiniować taki opis:</p>
-<pre class="wp-block-code language-javascript"><code>/**
+<pre><code>/**
  * Removes duplicates from list
  * @function
  * @example
@@ -139,22 +139,22 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Dodajemy tutaj prosty opis, wskazujemy, że jest to funkcja (@function), a następnie pokazujemy przykład użycia. Bywa to szczególnie przydatne w przypadku, gdy w samym opisie trudno zwięźle zawrzeć sposób działania funkcji. Adnotacja @example tworzy w dokumentacji fragment zapisany fontem o stałej szerokości. Właśnie dlatego idealnie nadaje się do podania przykładów wywołania funkcji z różnymi argumentami oraz ich wartości dla tych przypadków. Następnie mamy znane już adnotacje @param i @return. Tym razem jako typ podajemy tablicę obiektów dowolnego typu, ponieważ funkcja unique nie ogranicza się do filtrowania napisów czy liczb, stąd jako typ pojawia się any[].</p>
 <h2>Świetnie! Ale w jaki sposób wygenerować dokumentację?</h2>
 <p>Najprostszym sposobem na użycie jsdoc’a jest dodanie odpowiedniego wpisu w pliku package.json projektu:</p>
-<pre class="wp-block-code language-json"><code>"scripts": {
+<pre><code>"scripts": {
   …
   "jsdoc": "jsdoc -d docs/frontend -r src/",
   …
 }</code></pre>
 <p>Od tej pory dokumentację można wygenerować wydając polecenie:</p>
-<pre class="wp-block-preformatted">npm run jsdoc<br /></pre>
+<pre>npm run jsdoc<br /></pre>
 <p>w konsoli. Poprzez opcję -d (bądź równoważną --destination) możemy określić katalog, w którym przechowywana będzie wygenerowana dokumentacja. Opcja -r (równoważny --recurse) oznacza, że tworząc dokumentację przeszukiwane będą wszystkie pliki wewnątrz katalogu źródłowego i jego podkatalogów. Szczegółowość generowanego dokumentu kontrolować można opcją -p (--private), kontrolującą czy w dokumentacji zamieszczać także symbole opatrzone adnotacją @private.</p>
 <p>A tak wygląda przykładowa, końcowa dokumentacja dla naszych przykładów:</p>
-<div class="wp-block-image">
-  <figure class="aligncenter is-resized"><img src="{{ site.baseurl }}/assets/class-515x1024.png" alt="Dokumentacja klasy Manager wygenerowana przez jsdoc" class="wp-image-83" width="787" height="1565" /><br />
+<div>
+  <figure><img src="{{ site.baseurl }}/assets/class-515x1024.png" alt="Dokumentacja klasy Manager wygenerowana przez jsdoc" width="787" height="1565" /><br />
     <figcaption>Klasa “Manager”</figcaption>
   </figure>
 </div>
-<div class="wp-block-image">
-  <figure class="aligncenter is-resized"><img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" /><br />
+<div>
+  <figure><img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" /><br />
     <figcaption>Moduł “application/utils” z funkcją “unique”</figcaption>
   </figure>
 </div>
