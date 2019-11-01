@@ -1,25 +1,8 @@
 ---
-layout: page
+name: Bartosz Kostaniak
+position: Redaktor
+short_name: nitrooos
 title: Cześć, jestem Nitrooos.
-date: 2019-03-27 22:27:50.000000000 +01:00
-type: page
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories: []
-tags: []
-meta:
-  _edit_last: '1'
-  wpbf_options: a:0:{}
-  wpbf_sidebar_position: right
-author:
-  login: bartoszkostaniak_k9gtfpdt
-  email: bartoszkostaniak@gmail.com
-  display_name: nitrooos
-  first_name: ''
-  last_name: ''
-permalink: '/o-mnie/'
 ---
 <div class="wp-block-image">
   <figure class="alignright is-resized">
