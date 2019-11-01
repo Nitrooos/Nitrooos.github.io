@@ -14,11 +14,17 @@
   }
 
   &__subtitle {
+    font-size: .8rem;
+  }
+
+  &__subtitle,
+  &__title {
     font-weight: $font-weight-bold;
+    margin: 0;
   }
 
   &__title {
-    font-weight: $font-weight-bold;
+    font-size: 1.3rem;
     padding-bottom: 5px;
   }
 }
