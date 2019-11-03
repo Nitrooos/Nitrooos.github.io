@@ -52,13 +52,16 @@ total 4
   </figure>
 </div>
 <p>I tutaj jest miejsce na ciekawostkę, ponieważ interesujący jest sposób korzystania z takiego pliku. Wymagane jest zdefiniowanie odpowiedniego kodu CSS "wycinającego" potrzebny fragment z obrazka. I tak, chcąc korzystać z pliku "/assets/spritesheet.png" jako pliku ikon, definiujemy napierw klasę oznaczającą ikonę:</p>
-<pre><code>.icon {
+{% highlight css %}
+.icon {
   background: url('/assets/spritesheet.png') no-repeat;
   height: 32px;
   width: 32px;
-}</code></pre>
+}
+{% endhighlight %}
 <p>A następnie klasy definiujące poszczególne ikony:</p>
-<pre><code>.icon-question {
+{% highlight css %}
+.icon-question {
   background-position: 0 0;
 }
 
@@ -76,7 +79,8 @@ total 4
 
 .icon-internet-explorer {
   background-position: -96px -192px;
-}</code></pre>
+}
+{% endhighlight %}
 <p>I tak dalej, definiując kolejne przesunięcia dla poszczególnych ikon. Istnieją nawet strony stworzone specjalnie w celu wyznaczania odpowiednich przesunięć dla ikon, np. <a href="https://getspritexy.com/">https://getspritexy.com/</a>.</p>
 <h2>Osadzenie ikon w pliku fontu</h2>
 <p>Szukając lepszych alternatyw natrafimy na pierwszą, naprawdę sensowną: osadzenie ikon jako pojedynczych znaków (ang. <em>glyph</em>) w pliku fontu. Ikony są osadzone w jednym pliku, dodatkowo w postaci bezstratnej. Nie jest też zapisywana informacja o kolorze znaku. Oznacza to, że możemy dowolnie zmieniać&nbsp;rozmiar ikoy bez straty jakości oraz ustawiać jej dowolny kolor. O to chodziło! </p>
@@ -87,7 +91,8 @@ total 4
 <p>Jeśli i to Was nie zraża, to ciągle pozostaje jeden problem, choć i z nim można sobie poradzić. Jest to zachowanie przeglądarki, która może wyświetlać&nbsp;już tekst na stronie, korzystając z fontu systemowego podczas gdy nasz plik jest pobierany z serwera. Prowadzi to do sytuacji, w której przez krótki czas w miejscach, w których pojawią się później nasze ikony, <strong>wyświetlane będą "krzaki"</strong>. Dlaczego tak się dzieje? Poszczególne ikony są często definiowane na pozycjach przeznaczonych do użytku własnego. Osobiście spotykałem się z wykorzystaniem obszaru od pozycji 0x800. W naszym pliku znajdują się tam pożądane ikony, ale font systemowy może mieć zdefiniowane tam dowolne znaki. Zachowaniem tym można jednak sterować za pomocą właściwości CSS o nazwie font-display.</p>
 <h3>Jak korzystać z ikon zdefiniowanych w pliku fontu?</h3>
 <p>Załóżmy, że zdefiniowaliśmy ikony na pozycjach od 0x800 do 0x80F. W takim wypadku należy zacząć od zdefiniowania fontu:</p>
-<pre><code>@font-face {
+{% highlight css %}
+@font-face {
   font-family: 'icons-font';
   src: url('/fonts/icons-font.eot');
   src: url('/fonts/icons-font.eot#iefix') format('embedded-opentype'),
@@ -95,9 +100,11 @@ total 4
   url('/fonts/icons-font.ttf?40259512') format('truetype');
   font-weight: normal;
   font-style: normal;
-}</code></pre>
+}
+{% endhighlight %}
 <p>Następnie wszystkie nazwy klas z danym przedrostkiem powinny być zarezerwowane dla ikon (w naszym przypadku przedrostek "icon-"):</p>
-<pre><code>[class^="icon-"]:before, [class*=" icon-"]:before {
+{% highlight css %}
+[class^="icon-"]:before, [class*=" icon-"]:before {
   display: inline-block;
   font-family: "icons-font";
   font-style: normal;
@@ -106,22 +113,29 @@ total 4
   line-height: 1em;
   text-transform: none;
   width: 1em;
-}</code></pre>
+}
+{% endhighlight %}
 <p>Następnie rozpoczynamy definiowanie poszczególnych ikon:</p>
-<pre><code>.icon-pencil:before                      { content: '\e800'; }
+{% highlight css %}
+.icon-pencil:before                      { content: '\e800'; }
 .icon-book:before                        { content: '\e801'; }
 .icon-cross:before                       { content: '\e802'; }
 
 ...
 
 .icon-plus:before                        { content: '\e80E'; }
-.icon-minus:before                       { content: '\e80F'; }</code></pre>
+.icon-minus:before                       { content: '\e80F'; }
+{% endhighlight %}
 <p>Od teraz możemy użyć dowolnej z tych ikon dodając prosty kawałek HTML:</p>
-<pre><code>&lt;span class="icon-pencil">&lt;/span></code></pre>
+{% highlight css %}
+<span class="icon-pencil"></span>
+{% endhighlight %}
 <p>Odpowiedni kolor ikony można uzyskać dodając kolejną klasę CSS i definiując dla niej regułę. Dla przykładu aby ikona ołówka była niebieska, możemy dodać jej klasę "pencil" i regułę:</p>
-<pre><code>.pencil {
+{% highlight css %}
+.pencil {
   color: blue;
-}</code></pre>
+}
+{% endhighlight %}
 <h2>Plik SVG z używanymi ikonami</h2>
 <p>Opcją posiadającą wszystkie zalety poprzedniej i jednocześnie pozbawioną jej wad jest stworzenie jednego pliku SVG ze wszystkimi potrzebnymi nam ikonami (tak, format SVG pozwala na takie rzeczy!). Definiując ikony w aplikacji internetowej w formacie SVG uzyskujemy możliwość:</p>
 <ul>
@@ -131,35 +145,45 @@ total 4
 </ul>
 <h3>Jak możemy to uzyskać?</h3>
 <p>Zaczniemy od stworzenia nowego pliku, np. <em>spritesheet.svg</em> z następuącą zawartością:</p>
-<pre><code>&lt;svg>
-  &lt;defs>
-    &lt;g id="icon-pencil">
-      &lt;!-- definicja pierwszej ikony -->
-    &lt;/g>
-    &lt;g id="icon-book">
-      &lt;!-- definicja drugiej ikony -->
-    &lt;/g>
-    &lt;!-- i tak dalej... -->
-  &lt;/defs>
-&lt;/svg></code></pre>
-<p>Poszczególne ikony definiujemy wewnątrz elementów &lt;g&gt;, nadając im unikalne identyfikatory (atrybut "id"). Samą definicję ikon możemy skopiować z jednego z darmowych źródeł (np. znanego i cenionego <a href="https://www.flaticon.com/">https://www.flaticon.com</a>) i wkleić do pliku. Możliwe jest także samodzielne stworzenie i edycja plików SVG, np. za pomocą programu <a href="https://inkscape.org/">Inkscape</a>. </p>
+{% highlight css %}
+<svg>
+  <defs>
+    <g id="icon-pencil">
+      <!-- definicja pierwszej ikony -->
+    </g>
+    <g id="icon-book">
+      <!-- definicja drugiej ikony -->
+    </g>
+    <!-- i tak dalej... -->
+  </defs>
+</svg>
+{% endhighlight %}
+<p>Poszczególne ikony definiujemy wewnątrz elementów <g&gt;, nadając im unikalne identyfikatory (atrybut "id"). Samą definicję ikon możemy skopiować z jednego z darmowych źródeł (np. znanego i cenionego <a href="https://www.flaticon.com/">https://www.flaticon.com</a>) i wkleić do pliku. Możliwe jest także samodzielne stworzenie i edycja plików SVG, np. za pomocą programu <a href="https://inkscape.org/">Inkscape</a>. </p>
 <h3>Dobrze, ale jak mogę wyświetlić taką ikonę na stronie?</h3>
-<p>Na początku należy oczywiście umieścić&nbsp;odpowiedni plik na stronie, co można najprościej uczynić "wklejając" zawartość pliku <em>spritesheet.svg</em> do dokumentu HTML, na przykład jako pierwszy potomek elementu &lt;body&gt;. Możliwe jest także dopisanie tego pliku jako zasobu do pobrania w sekcji &lt;head&gt;:</p>
-<pre><code>&lt;link rel="preload" href="spritesheet.svg" as="image"></code></pre>
+<p>Na początku należy oczywiście umieścić&nbsp;odpowiedni plik na stronie, co można najprościej uczynić "wklejając" zawartość pliku <em>spritesheet.svg</em> do dokumentu HTML, na przykład jako pierwszy potomek elementu <body&gt;. Możliwe jest także dopisanie tego pliku jako zasobu do pobrania w sekcji <head&gt;:</p>
+{% highlight css %}
+<link rel="preload" href="spritesheet.svg" as="image">
+{% endhighlight %}
 <p>Następnie, w dowolnym miejscu naszej strony możemy odwołać się do dowolnej ikony poprzez kod:</p>
-<pre><code>&lt;svg viewBox="0 0 100 100" class="icon icon-pencil">
-  &lt;use xlink:href="#icon-pencil">&lt;/use>
-&lt;/svg></code></pre>
+{% highlight css %}
+<svg viewBox="0 0 100 100" class="icon icon-pencil">
+  <use xlink:href="#icon-pencil"></use>
+</svg>
+{% endhighlight %}
 <p>Należy tylko uważać na ścieżkę odwołującą się do ikony: w tym przypadku jest to po prostu #pencil-icon i jest to wartość właściwa gdy definicja ikony jest zawarta bezpośrednio w dokumencie HTML. Jeśli nie wklejamy zawartości pliku <em>spritesheet.svg</em> tylko odwołujemy się do niego po nazwie, to musimy pamiętać o niej w atrybucie xlink:href</p>
-<pre><code>&lt;svg viewBox="0 0 100 100" class="icon icon-pencil">
-  &lt;use xlink:href="/spritesheet.svg#icon-pencil">&lt;/use>
-&lt;/svg></code></pre>
+{% highlight css %}
+<svg viewBox="0 0 100 100" class="icon icon-pencil">
+  <use xlink:href="/spritesheet.svg#icon-pencil"></use>
+</svg>
+{% endhighlight %}
 <h3>Bonus! Stylowanie za pomocą CSS</h3>
 <p>Ikony w formacie SVG zamieszczone na stronie stanowią integralną część drzewa DOM, dlatego możliwe jest stylowanie ich (a nawet ich części!) za pomocą reguły fill w CSS:</p>
-<pre><code>.icon-pencil {
+{% highlight css %}
+.icon-pencil {
   fill: red;
-}</code></pre>
+}
+{% endhighlight %}
 <h3>Czy naprawdę jest tak idealnie?</h3>
-<p>Odpowiedź brzmi: oczywiście nie! Choć wada, jaka tutaj się pojawia może nie mieć znaczenia w niektórych przypadkach. Mowa oczywiście o wsparciu przeglądarek. Dopóki korzystamy z metody osadzania zawartości pliku <em>spritesheet.svg</em> jest nieźle. IE 8+, Safari 5+, iOS 4.3+ i Android 2.3+ to naprawdę dobry wynik. Mniej różowo jest gdy postanawiamy korzystać z możliwości cache'owania przez przeglądarki tego pliku i umieszczamy go jako osobny zasób w &lt;link&gt;. Wówczas tracimy wsparcie wszystkich wersji Internet Explorera, co niestety nadal jest nie do przyjęcia w wielu projektach. Z drugiej strony istnieje odpowiedni polyfill, tj. biblioteka <a href="https://www.npmjs.com/package/svg4everybody">svg4everybody</a>, co zawsze jest opcją do rozważenia.</p>
+<p>Odpowiedź brzmi: oczywiście nie! Choć wada, jaka tutaj się pojawia może nie mieć znaczenia w niektórych przypadkach. Mowa oczywiście o wsparciu przeglądarek. Dopóki korzystamy z metody osadzania zawartości pliku <em>spritesheet.svg</em> jest nieźle. IE 8+, Safari 5+, iOS 4.3+ i Android 2.3+ to naprawdę dobry wynik. Mniej różowo jest gdy postanawiamy korzystać z możliwości cache'owania przez przeglądarki tego pliku i umieszczamy go jako osobny zasób w <link&gt;. Wówczas tracimy wsparcie wszystkich wersji Internet Explorera, co niestety nadal jest nie do przyjęcia w wielu projektach. Z drugiej strony istnieje odpowiedni polyfill, tj. biblioteka <a href="https://www.npmjs.com/package/svg4everybody">svg4everybody</a>, co zawsze jest opcją do rozważenia.</p>
 <h2>Ikony w aplikacji internetowej - podsumowanie</h2>
 <p>Dostępnych możliwości jest jak widać wiele, i wybór najlepszej zależy od konkretnego przypadku. Dla aplikacji profesjonalnych, komercyjnych można jednak polecić metody ikon osadzonych w pliku fontu oraz ikon definiowanych w pojedynczym pliku SVG (spritesheet). Mimo że wymagają więcej wysiłku w tworzeniu i utrzymaniu to posiadają niepodważalne zalety. Możliwość definiowania dowolnego koloru i rozmiaru bez straty jakości są naprawdę dużymi plusami. Mam nadzieję, że artykuł pomógł Wam zdobyć lepsze rozeznanie w tym temacie, zapraszam do komentowania!</p>
