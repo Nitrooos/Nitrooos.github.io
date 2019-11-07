@@ -46,7 +46,8 @@ excerpt: Uzupełnie wpisu nt. klasy HyphenatePipe - co zrobić gdy używanie pip
 <p>Niestety, do tego stopnia, że problem ten okazał się być głównym czynnikiem wydłużającym czas ładowania aplikacji. W moim przypadku Pipe tworzony był 8 razy, przy czym za każdym razem wykonywana była operacja importu wzorca językowego. Dokładnie o 7 razy za dużo &lt;facepalm&gt;.</p>
 <h2>Rozwiązanie problemu z klasą HyphenatePipe</h2>
 <p>Rozwiązaniem jest oczywiście wykonanie importu wzorca językowego tylko 1 raz. Możemy to osiągnąć poprzez wydzielenie operacji tworzenia obiektu hyphenator klasy Hypher do dedykowanego serwisu. W naszym przypadku będzie on nazywał się HyphenationPatternsService. Implementacja jest prosta, spokojnie można przedstawić ją w jednym fragmencie kodu:</p>
-<pre><code>import { Injectable } from '@angular/core';
+{% highlight typescript %}
+import { Injectable } from '@angular/core';
 import * as Hypher from 'hypher';
 import * as german from 'hyphenation.de';
 
@@ -61,7 +62,10 @@ export class HyphenationPatternsService {
   public hyphenate(word: string) {
     return this.hyphenator.hyphenate(word);
   }
-}</code></pre>
+}
+{% endhighlight %}
 <p>Następnie możemy wstrzyknąć&nbsp;ten serwis jako zależność do klasy HyphenatePipe:</p>
-<pre><code>constructor(private hyphenationService: HyphenationPatternsService) { }</code></pre>
+{% highlight typescript %}
+constructor(private hyphenationService: HyphenationPatternsService) { }
+{% endhighlight %}
 <p>Od teraz tworzenie nowych instancji HyphenatePipe jest bardzo szybkie i nie rzutuje na czasie ładowania aplikacji. Wzorzec językowy dla dzielenia wyrazu na sylaby jest ładowany tylko 1 raz. Gotowe!</p>
