@@ -2,7 +2,7 @@
 name: Bartosz Kostaniak
 position: Redaktor
 short_name: nitrooos
-title: Cześć, jestem Nitrooos.
+title: Nitrooos | Myśli programisty
 ---
 <aside class="authors__image">
   <figure>
