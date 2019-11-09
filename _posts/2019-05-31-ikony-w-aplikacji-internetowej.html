@@ -38,19 +38,15 @@ total 4
 -rw-r--r-- 1 user group  520 May 20  2019 calendar_red_big.png</pre>
 <h3>WADA: Utrata jakości po przeskalowaniu</h3>
 <p>Oczywistość, ale należy o tym pamiętać - dla prostych ikon warto rozważyć stosowanie grafiki wektorowej w formacie SVG, dzięki czemu unikniemy problemów takich jak poniżej.</p>
-<div>
-  <figure>
-    <img src="{{ site.baseurl }}/assets/pixelized.png" alt="Ikona ołówka w normalnym rozmiarze i powiększona" />
-  </figure>
-</div>
+<figure class="app__image">
+  <img src="{{ site.baseurl }}/assets/pixelized.png" alt="Ikona ołówka w normalnym rozmiarze i powiększona" />
+</figure>
 <p style="text-align:center"><small>Utrata jakości spowodowana skalowaniem grafiki rastrowej (ikona ołówka pobrana z <a href="https://www.stockio.com/free-icon/maria-pencil">https://www.stockio.com/free-icon/maria-pencil</a>)</small></p>
 <h2>Ikony w aplikacji internetowej w jednym pliku</h2>
 <p>Jest to krok naprzód względem metody pierwszej, ponieważ rzeczywiście wszystkie ikony mogą być załadowane za pomocą jednego żądania HTTP. Wciąż jednak pozostają 2 kolejne wady wymienione powyżej: brak możliwości konfiguracji ikon oraz brak możliwości skalowania bez utraty jakości. Dla kronikarskiego obowiązku odnotowuję jednak, że taka metoda była również niegdyś stosowana. Odpowiednie pliki, będące zbiorami ikon nadal możemy znaleźć w Internecie, np. taki:</p>
-<div>
-  <figure>
-    <img src="{{ site.baseurl }}/assets/icon_spritesheet.png" alt="Spritesheet jako bitmapa z ikonami" />
-  </figure>
-</div>
+<figure class="app__image">
+  <img src="{{ site.baseurl }}/assets/icon_spritesheet.png" alt="Spritesheet jako bitmapa z ikonami" />
+</figure>
 <p>I tutaj jest miejsce na ciekawostkę, ponieważ interesujący jest sposób korzystania z takiego pliku. Wymagane jest zdefiniowanie odpowiedniego kodu CSS "wycinającego" potrzebny fragment z obrazka. I tak, chcąc korzystać z pliku "/assets/spritesheet.png" jako pliku ikon, definiujemy napierw klasę oznaczającą ikonę:</p>
 {% highlight css %}
 .icon {

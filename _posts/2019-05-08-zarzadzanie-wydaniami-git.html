@@ -58,11 +58,10 @@ excerpt: Klient zmienia co chwilę zdanie co powinno zostać wgrane na serwer st
 <p>Narzędzie służące do przygotowania wgrywki na produkcję powinno akceptować nazwę tagu jako parametr. Dzięki temu wgrywane będą tylko przygotowane w tym celu, odpowiednie wersje kodu.</p>
 <h2>Zarządzanie wydaniami na konkretnym przykładzie</h2>
 <p>Pokażę jeszcze przykład zarządzania wydaniami na przykładzie 4 zadań, 2 wgrywek na serwer przedprodukcyjny i 2 wgrywek na produkcję. Sytuację przedstawia poniższy schemat:</p>
-<div>
-  <figure><img src="{{ site.baseurl }}/assets/workflow-384x1024.png" alt="Zarządzanie wydaniami w systemie kontroli wersji - historia prac nad zadaniami" /><br />
-    <figcaption>Przykładowa historia prac nad zadaniami i zarządzania ich gałęziami</figcaption>
-  </figure>
-</div>
+<figure class="app__image">
+  <img src="{{ site.baseurl }}/assets/workflow-384x1024.png" alt="Zarządzanie wydaniami w systemie kontroli wersji - historia prac nad zadaniami" />
+  <figcaption>Przykładowa historia prac nad zadaniami i zarządzania ich gałęziami</figcaption>
+</figure>
 <p>Gałęzie <em>rc_1</em> i <em>rc_2</em> służą do przygotowania wgrywek na przedprodukcyjny serwer, gałąź <em>master</em> odzwierciedla stan kodu na produkcji, gałęzie z zadaniami nazywają się <em>task_1</em>, <em>task_2</em>, <em>task_3</em> i <em>task_4</em>. Linia przerywana czerwona oznacza okres testowania zadania na serwerze testowym. Linia przerywana szara oznacza, że zadanie jest gotowe, ale aktualnie nie jest wgrane na serwer testowy. Jak pamiętamy, może na nim być jednocześnie wgrane tylko 1 zadanie. </p>
 <h3>Analiza krok po kroku</h3>
 <p>Rozpoczęto pracę nad zadaniem <em>task_1</em> (wychodząc nową gałęzią z <em>master</em>'a), ukończono pracę i wgrano na serwer testowy. W międzyczasie rozpoczęto pracę nad kolejnym zadaniem (<em>task_2</em>). Po ukończeniu pracy zostało ono wgrane na serwer testowy (zamiast zadania <em>task_1</em> - linia przerywana szara). W trakcie gdy na serwerze testowym znajdowało się zadanie <em>task_2</em>, rozpoczęto pracę nad priorytetowym zadaniem <em>task_3 (hotfix)</em>. Zadania <em>task_1</em> i <em>task_2</em> zostały zmergowane do gałęzi <em>rc_1</em>. Po zakończeniu prac nad zadaniem <em>task_3</em> i przetestowaniu go na serwerze testowym zmergowano go do gałęzi <em>rc_2</em>. Zrobiono tak, ponieważ zadanie to powinno znaleźć się na produkcji jak najszybciej, bez czekania na przetestowanie i ewentualne poprawki do zadań <em>task_1</em> i <em>task_2</em>. Z gałęzi <em>rc_2</em> wgrano kod na serwer przedprodukcyjny, przetestowano go i zmergowano do gałęzi <em>master</em>. Następnie stworzono nowy tag <em>v0.1</em> i wgrano kod na produkcję.</p>

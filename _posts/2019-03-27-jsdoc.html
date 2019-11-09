@@ -148,16 +148,14 @@ constructor(name, projects) { ... }
 </pre>
 <p>w konsoli. Poprzez opcję -d (bądź równoważną --destination) możemy określić katalog, w którym przechowywana będzie wygenerowana dokumentacja. Opcja -r (równoważny --recurse) oznacza, że tworząc dokumentację przeszukiwane będą wszystkie pliki wewnątrz katalogu źródłowego i jego podkatalogów. Szczegółowość generowanego dokumentu kontrolować można opcją -p (--private), kontrolującą czy w dokumentacji zamieszczać także symbole opatrzone adnotacją @private.</p>
 <p>A tak wygląda przykładowa, końcowa dokumentacja dla naszych przykładów:</p>
-<div>
-  <figure><img src="{{ site.baseurl }}/assets/class-515x1024.png" alt="Dokumentacja klasy Manager wygenerowana przez jsdoc" width="787" height="1565" /><br />
-    <figcaption>Klasa “Manager”</figcaption>
-  </figure>
-</div>
-<div>
-  <figure><img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" /><br />
-    <figcaption>Moduł “application/utils” z funkcją “unique”</figcaption>
-  </figure>
-</div>
+<figure class="app__image">
+  <img src="{{ site.baseurl }}/assets/class-515x1024.png" alt="Dokumentacja klasy Manager wygenerowana przez jsdoc" width="787" height="1565" />
+  <figcaption>Klasa “Manager”</figcaption>
+</figure>
+<figure class="app__image">
+  <img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" width="815" height="707" />
+  <figcaption>Moduł “application/utils” z funkcją “unique”</figcaption>
+</figure>
 <p>Jak widać, wygenerowany dokument jest czytelny, i w prosty sposób możemy zobaczyć powiązanie pomiędzy informacjami zamieszczonymi w adnotacjach a tym, co widzimy w dokumentacji. Po prawej strony znajduje się nawigowane menu, dzięki któremu można przemieszczać się pomiędzy dokumentacją poszczególnych klas i modułów, sama strona dokumentacji po prawej zawiera podsumowanie zadeklarowanych funkcji/metod/typów, wraz z ich parametrami i opisem. Dzięki linkom zawsze można przeskoczyć do odpowiedniego kawałka kodu, który opisuje dokumentacja.</p>
 <p>Źródła:</p>
 <ul>
