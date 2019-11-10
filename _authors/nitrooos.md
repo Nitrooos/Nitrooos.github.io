@@ -2,7 +2,7 @@
 name: Bartosz Kostaniak
 position: Redaktor
 short_name: nitrooos
-title: Cześć, jestem Nitrooos.
+title: Nitrooos | Myśli programisty
 ---
 <aside class="authors__image">
   <figure>
@@ -16,7 +16,7 @@ title: Cześć, jestem Nitrooos.
   </figure>
 </aside>
 <p>
-  Od niemal 4 lat zawodowo zajmuję się tworzeniem stron i aplikacji
+  Od ponad 4 lat zawodowo zajmuję się tworzeniem stron i aplikacji
   internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać
   sensowny frontend w Angularze/Vue.js, stworzyć logikę kodu backendowego w
   Pythonie, podłubać w strukturze bazy danych czy posprzątać i umieścić
