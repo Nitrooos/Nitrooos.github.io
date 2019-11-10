@@ -16,7 +16,6 @@ a {
   color: $link;
   font-weight: $font-weight-bold;
   text-decoration: none;
-  word-break: break-all;
 }
 
 figcaption {
@@ -53,9 +52,14 @@ h5 {
   margin: 20px 0 5px 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 pre {
   font-family: monospace;
   margin: 1rem 0;
+  overflow-x: scroll;
 
   code {
     background: $code-bg;
