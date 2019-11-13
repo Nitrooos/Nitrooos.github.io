@@ -3,10 +3,6 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-body {
-  font-size: 16px;
-}
-
 a, figcaption, h1, h2, h3, h4, h5, li, p, pre, ul {
   color: $text-main;
   font-family: Helvetica, Arial, sans-serif;
@@ -16,7 +12,15 @@ a {
   color: $link;
   font-weight: $font-weight-bold;
   text-decoration: none;
-  word-break: break-all;
+}
+
+body {
+  font-size: 16px;
+}
+
+code {
+  min-width: 100%;
+  width: max-content;
 }
 
 figcaption {
@@ -53,9 +57,14 @@ h5 {
   margin: 20px 0 5px 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 pre {
   font-family: monospace;
   margin: 1rem 0;
+  overflow-x: auto;
 
   code {
     background: $code-bg;

@@ -58,7 +58,7 @@ import * as german from 'hyphenation.de';
 @Pipe({name: 'hyphenate'})
 export class HyphenatePipe implements PipeTransform {
 {% endhighlight %}
-<p>Dekorator @Pipe mówi kompilatorowi jaki typ klasy chcemy zaimplementować. W nawiasie podajemy obiekt konfiguracyjny z kluczem name, oznaczającym nazwę, po której będziemy odwoływać się w szablonach do pipe’a. Ważne jest też zaznaczenie implementacji interfejsu PipeTransform, zawierającego wspomnianą metodę transform. Na samej górze dodałem przydatne komentarze w stylu jsdoc, o których napisałem osobny <a href="https://nitrooos.pl/2019/03/jsdoc/" target="_blank" rel="noreferrer noopener" aria-label="wpis (otwiera się na nowej zakładce)">wpis</a> na blogu :)</p>
+<p>Dekorator @Pipe mówi kompilatorowi jaki typ klasy chcemy zaimplementować. W nawiasie podajemy obiekt konfiguracyjny z kluczem name, oznaczającym nazwę, po której będziemy odwoływać się w szablonach do pipe’a. Ważne jest też zaznaczenie implementacji interfejsu PipeTransform, zawierającego wspomnianą metodę transform. Na samej górze dodałem przydatne komentarze w stylu jsdoc, o których napisałem osobny <a href="/2019/03/jsdoc/" target="_blank" rel="noreferrer noopener" aria-label="wpis (otwiera się na nowej zakładce)">wpis</a> na blogu :)</p>
 <p>Następnie mamy sekcję inicjalizacyjną:</p>
 {% highlight typescript %}
 private hyphenator: Hypher = null;

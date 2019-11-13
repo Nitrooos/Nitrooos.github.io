@@ -2,6 +2,12 @@
   &__image {
     float: right;
     margin: 0 30px;
+
+    @media #{$phone} {
+      display: flex;
+      float: none;
+      justify-content: center;
+    }
   }
 
   &__image-caption {

@@ -1,0 +1,15 @@
+$tablet-min-width: 768px;
+$laptop-min-width: 992px;
+$desktop-min-width: 1200px;
+$widescreen-min-width: 1440px;
+
+$phone-max-width: $tablet-min-width - 1px;
+$tablet-max-width: $laptop-min-width - 1px;
+$laptop-max-width: $desktop-min-width - 1px;
+$desktop-max-width: $widescreen-min-width - 1px;
+
+$widescreen: "only screen and (min-width: #{$widescreen-min-width})";
+$desktop: "only screen and (min-width: #{$desktop-min-width}) and (max-width: #{$desktop-max-width})";
+$laptop: "only screen and (min-width: #{$laptop-min-width}) and (max-width: #{$laptop-max-width})";
+$tablet: "only screen and (min-width: #{$tablet-min-width}) and (max-width: #{$tablet-max-width})";
+$phone: "only screen and (max-width: #{$phone-max-width})";
