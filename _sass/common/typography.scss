@@ -82,5 +82,10 @@ pre {
 
 ol, ul {
   list-style-type: disc;
+  margin: 20px;
   padding-left: 20px;
+
+  @media #{$phone} {
+    margin: 20px 0;
+  }
 }
