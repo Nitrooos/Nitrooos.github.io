@@ -24,7 +24,7 @@ excerpt: Od dziś praca z cudzym kodem nie będzie wymagała od Ciebie zgłębia
 <p>Potrafi wykrywać on specjalne adnotacje w kodzie JavaScript, umieszczone jako część komentarza (pomiędzy znakami /** tutaj zawartość do zinterpretowania przez jsdoc */). Adnotacje te opisują np. znaczenie i typy poszczególnych parametrów wywołania funkcji, jej wartość i typ, opisują zastosowanie i zakres odpowiedzialności klasy itp. Wachlarz możliwości jest naprawdę szeroki (co, choć częściowo, postaram się pokazać w tym wpisie). </p>
 <p>Adnotacje w tym kształcie już okazują się przydatne dla programistów, którzy będą pracowali nad naszym kodem w przyszłości, ponieważ lepiej i szybciej zrozumieją intencje autora, to jednak nie wszystko! Narzędzia tego możemy użyć do <strong>generowania dokumentacji kodu</strong> na podstawie samych adnotacji i treści w nich zawartych. Możemy robić to w sposób zautomatyzowany, w formacie gotowych do przeglądania stron HTML. Jakie to ma zastosowanie? Wyobraźmy sobie, że pracujemy nad projektem, z którego potencjalnie (od strony programistycznej) korzystać może wiele osób/organizacji. Interesować je będzie możliwość wykorzystania naszego kodu, jednak bez wgłębiania się w szczegóły implementacji. W takiej sytuacji udostępnienie im dokumentacji jest zbawienne, a dzięki jsdoc możemy wygenerować ją w każdej chwili.</p>
 <h2>Przejdźmy do konkretów!</h2>
-<p>Zaczniemy od stworzenia kodu składającego się z deklaracji klasy wraz z jej metodami oraz prostego modułu i typu. Poniższy kod jest wyłącznie przykładowy, nie należy wyciągać na jego podstawie wniosków dotyczących spojrzenia autora na świat ;) Zadeklarowana zostanie prosta klasa “Manager” z kilkoma metodami, umożliwiającymi obiektom tej klasy sprawne zarządzanie projektami w organizacji:</p>
+<p>Zaczniemy od stworzenia kodu składającego się z deklaracji klasy wraz z jej metodami oraz prostego modułu i typu. Poniższy kod jest wyłącznie przykładowy, nie należy wyciągać na jego podstawie wniosków dotyczących spojrzenia autora na świat ;) Zadeklarowana zostanie prosta klasa "Manager" z kilkoma metodami, umożliwiającymi obiektom tej klasy sprawne zarządzanie projektami w organizacji:</p>
 {% highlight javascript %}
 class Manager {
   _projects = [];
@@ -36,7 +36,7 @@ class Manager {
   delayedProjects() { ... }
 }
 {% endhighlight %}
-<p>Oczywiście w przypadku tak prostej klasy możemy domyśleć się jak (mniej więcej) powinny zachowywać się zadeklarowane metody. Nie wiemy jednak dokładnie w jaki sposób zmieniają one stan obiektu oraz czy zwracają jakąś wartość. Dodatkowo same nazwy mogą okazać się mylące lub nieścisłe (słowo “Manager” oznaczać może przecież zarządców zupełnie w zupełnie różnych kontekstach). Dodatkowo, w prawdziwych projektach, kod potrafi być znacznie bardziej złożony. </p>
+<p>Oczywiście w przypadku tak prostej klasy możemy domyśleć się jak (mniej więcej) powinny zachowywać się zadeklarowane metody. Nie wiemy jednak dokładnie w jaki sposób zmieniają one stan obiektu oraz czy zwracają jakąś wartość. Dodatkowo same nazwy mogą okazać się mylące lub nieścisłe (słowo "Manager" oznaczać może przecież zarządców zupełnie w zupełnie różnych kontekstach). Dodatkowo, w prawdziwych projektach, kod potrafi być znacznie bardziej złożony. </p>
 <p>Drugim kawałkiem do udokumentowania będzie prosty moduł, eksportujący jedną funkcję, służącą do usuwania duplikatów z tablicy obiektów:</p>
 {% highlight javascript %}
 const unique = (list) =>
@@ -150,11 +150,11 @@ constructor(name, projects) { ... }
 <p>A tak wygląda przykładowa, końcowa dokumentacja dla naszych przykładów:</p>
 <figure class="app__image">
   <img src="{{ site.baseurl }}/assets/class-515x1024.png" alt="Dokumentacja klasy Manager wygenerowana przez jsdoc" />
-  <figcaption>Klasa “Manager”</figcaption>
+  <figcaption>Klasa "Manager"</figcaption>
 </figure>
 <figure class="app__image">
   <img src="{{ site.baseurl }}/assets/dokumentacja.png" alt="Dokumentacja modułu application/utils wygenerowana przez jsdoc" />
-  <figcaption>Moduł “application/utils” z funkcją “unique”</figcaption>
+  <figcaption>Moduł "application/utils" z funkcją "unique"</figcaption>
 </figure>
 <p>Jak widać, wygenerowany dokument jest czytelny, i w prosty sposób możemy zobaczyć powiązanie pomiędzy informacjami zamieszczonymi w adnotacjach a tym, co widzimy w dokumentacji. Po prawej strony znajduje się nawigowane menu, dzięki któremu można przemieszczać się pomiędzy dokumentacją poszczególnych klas i modułów, sama strona dokumentacji po prawej zawiera podsumowanie zadeklarowanych funkcji/metod/typów, wraz z ich parametrami i opisem. Dzięki linkom zawsze można przeskoczyć do odpowiedniego kawałka kodu, który opisuje dokumentacja.</p>
 <p>Źródła:</p>

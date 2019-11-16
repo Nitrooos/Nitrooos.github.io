@@ -29,14 +29,14 @@ excerpt: Choć dzisiejszy temat może wydawać się prosty (to przecież standar
   <li>przypisany jednoznacznie do jednego konta</li>
 </ul>
 <p>Zapewnienie powyższych właściwości wymaga jednak trochę wysiłku, stąd pytanie dlaczego każda z nich jest konieczna? </p>
-<p><strong>Jednorazowość</strong> jest niezbędna, aby nie pozostawiać takiej "furtki”, jaką jest umożliwienie zmiany hasła użytkownikowi, otwartej zbyt długo (będzie o tym jeszcze mowa w dalszej części).</p>
+<p><strong>Jednorazowość</strong> jest niezbędna, aby nie pozostawiać takiej "furtki", jaką jest umożliwienie zmiany hasła użytkownikowi, otwartej zbyt długo (będzie o tym jeszcze mowa w dalszej części).</p>
 <p><strong>Nieprzewidywalność</strong> oznacza użycie prawdziwie losowych generatorów liczb do stworzenia tokena w celu uniemożliwienia jego samodzielnego skonstruowania/odgadnięcia przez osobę niepowołaną. </p>
 <p><strong>Długość</strong> zapewnia ochronę przed prostym atakiem typu <em>brute force</em>. Dzięki niej nie jest prawdopodobne wygenerowanie w sensownym czasie prawidłowego tokenu próbując wszystkich możliwych kombinacji. W praktyce stosuje się tokeny minimum 32-znakowe.</p>
 <p><strong>Powiązanie z konkretnym kontem</strong> zapewnia, że token wygenerowany przez użytkownika A może zostać użyty do zmiany hasła tylko tego użytkownika, a nie np. nieświadomego niczego użytkownika B.</p>
 <h4>Jeszcze jedna ważna notka o zawartości tokenu</h4>
 <p><strong>Nie przechowuj</strong> w wygenerowanym tokenie informacji o koncie użytkownika ani o czasie jego ważności. Wbudowanie takich informacji w sam token sprawi, że możliwe stanie się  (potencjalne) resetowanie haseł innym osobom niż ta, która token wygenerowała. Modyfikacje mogłyby także np. sztucznie wydłużyć jego ważność. Token z założenia ma służyć jedynie identyfikacji odpowiedniego wpisu w bazie danych, tj. przypisanego do niego użytkownika.</p>
 <h3>Zasada nr 2: Jak najszybsze unieważnianie tokenu</h3>
-<p>Oczywistym jest, że jeśli już umożliwiamy zmianę hasła w aplikacji, to cała procedura powinna przebiegać sprawnie i szybko, bez pozostawiania otwartych “furtek” do systemu. Generalna zasada brzmi: <strong>pozostaw token ważnym tylko tak długo, jak to konieczne, ale nie dłużej niż przez x jednostek czasu</strong>. W praktyce oznacza to, że:</p>
+<p>Oczywistym jest, że jeśli już umożliwiamy zmianę hasła w aplikacji, to cała procedura powinna przebiegać sprawnie i szybko, bez pozostawiania otwartych "furtek" do systemu. Generalna zasada brzmi: <strong>pozostaw token ważnym tylko tak długo, jak to konieczne, ale nie dłużej niż przez x jednostek czasu</strong>. W praktyce oznacza to, że:</p>
 <ul>
   <li>Generując token na żądanie użytkownika o zmianę hasła, musimy nadać&nbsp;mu krótki okres ważności, wynoszący standardowo do kilkunastu minut (np. 15 minut).</li>
   <li>Należy unieważnić token natychmiast, jeśli:

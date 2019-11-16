@@ -15,7 +15,7 @@ excerpt: Aplikacje tłumaczone na niektóre języki (m. in. skandynawskie, ale t
   niemiecki) muszą poradzić sobie z poprawnym wyświetlaniem wyrazów dłuższych niż
   niejedno zdanie :) Jak to zrobić? Dowiecie się już dziś!
 ---
-<p>Wykonując projekty dla klienta niemieckiego spotkałem się z problemem zgodnego z gramatyką dzielenia długich wyrazów na sylaby. Ma to znaczenie, ponieważ słowa takie jak “Datenschutzerklärung”, “Zusammenfassung” czy “Änderungswunsch” nie mieszczą się w jednej linii na urządzeniach mobilnych. Strona, która nie potrafi poprawnie wyświetlać takiego tekstu jest, w odczuciu użytkowników, przygotowana nieprofesjonalne, a rozwiązaniem tego problemu jest implementacja zgodnego z gramatyką dzielenia długich wyrazów na sylaby (ang. <em>hyphenation</em>). Zaczynajmy!</p>
+<p>Wykonując projekty dla klienta niemieckiego spotkałem się z problemem zgodnego z gramatyką dzielenia długich wyrazów na sylaby. Ma to znaczenie, ponieważ słowa takie jak "Datenschutzerklärung", "Zusammenfassung" czy "Änderungswunsch" nie mieszczą się w jednej linii na urządzeniach mobilnych. Strona, która nie potrafi poprawnie wyświetlać takiego tekstu jest, w odczuciu użytkowników, przygotowana nieprofesjonalne, a rozwiązaniem tego problemu jest implementacja zgodnego z gramatyką dzielenia długich wyrazów na sylaby (ang. <em>hyphenation</em>). Zaczynajmy!</p>
 <h2>Zarys rozwiązania</h2>
 <p>Chcemy, aby rozwiązanie pozwalało włączyć mechanizm dla wybranych słów bądź zdań bezpośrednio w szablonie HTML strony, najlepiej z możliwością wskazania dodatkowych opcji, np. dzielenie na sylaby tylko N najdłuższych słów w zdaniu bądź dzielenie tylko wyrazów dłuższych niż M znaków. Mając na względzie te założenia oraz wybraną technologię (Angular), logicznie decydujemy się na użycie narzędzia pipe. Dzięki temu użycie tego mechanizmu będzie wyglądać np. tak:</p>
 <pre>
@@ -24,7 +24,7 @@ excerpt: Aplikacje tłumaczone na niektóre języki (m. in. skandynawskie, ale t
 </pre>
 <p>gdzie • oznacza specjalną encję &amp;shy­­ normalnie nie będącą wyświetlaną przez przeglądarki, ale definiującą punkty, w których może ona dokonać podziału na sylaby w razie potrzeby.</p>
 <p>Aby to uzyskać skorzystamy z biblioteki hypher (<a href="https://github.com/bramstein/hypher" target="_blank">https://github.com/bramstein/hypher</a>), służącej właśnie do dzielenia słów zgodnie z gramatyką wybranego języka (ang. <em>hyphenation</em>).</p>
-<h2>Czym jest Pipe w “nowym” Angularze?</h2>
+<h2>Czym jest Pipe w "nowym" Angularze?</h2>
 <p>Zanim omówię implementację, krótka informacja nt. narzędzia pipe. Umożliwia ono transformację wartości wejściowej w zdefiniowany przez nas sposób, otrzymując nową wartość na wyjściu, gotową do wyświetlenia w szablonie. Aby stworzyć własny pipe wystarczy zadeklarować nową klasę implementującą interfejs PipeTransform z funkcją transform. W samym frameworku zdefiniowane są pewne standardowe transformacje, np. CurrencyPipe czy DatePipe, które można wykorzystywać&nbsp;w następujący sposób:</p>
 <pre>
     &lbrace;&lbrace; 1.23 | currency }}
@@ -68,7 +68,7 @@ constructor() {
   this.hyphenator = new Hypher(german);
 }
 {% endhighlight %}
-<p>Tu słowo wyjaśnienia: aby móc korzystać z biblioteki hypher, musimy stworzyć obiekt klasy Hypher z parametrem wzorca językowego. Stąd pole obiektu o nazwie hyphenator. Natomiast ‘\u00AD’ jest znakiem “miękkiego” łącznika (encja &amp;shy­). Jest to znak niewyświetlany normalnie przez przeglądarkę, ale zaznaczający miejsce, w którym może ona dokonać podziału na sylaby w razie potrzeby.</p>
+<p>Tu słowo wyjaśnienia: aby móc korzystać z biblioteki hypher, musimy stworzyć obiekt klasy Hypher z parametrem wzorca językowego. Stąd pole obiektu o nazwie hyphenator. Natomiast ‘\u00AD’ jest znakiem "miękkiego" łącznika (encja &amp;shy­). Jest to znak niewyświetlany normalnie przez przeglądarkę, ale zaznaczający miejsce, w którym może ona dokonać podziału na sylaby w razie potrzeby.</p>
 {% highlight typescript %}
 /**
  * Hyphenates given text
@@ -116,6 +116,6 @@ transform(text: string, options: HyphenateOptions = {}): string {
 }
 {% endhighlight %}
 <p>Ponieważ przekazanie dodatkowych opcji nie jest obowiązkowe, domyślnie dzielone na sylaby są wszystkie wyrazy. Osiągane jest to poprzez ustawienie opcja onlyNLongest na równą liczbie słów a longerThan na 0. </p>
-<p>Poprzez użycie metody concat na tablicy words tworzymy jej kopię, którą następnie sortujemy. Jest to potrzebne, ponieważ operacja sortowania zmienia kolejność elementów oryginalnej tablicy. Następnie wybieramy z niej tylko N najdłuższych wyrazów a ostatecznie filtrujemy tak, aby na końcu znalazły się tylko wyrazy dłuższe niż M znaków. Sam proces dzielenia na sylaby (główna instrukcja return) polega na utworzeniu nowej tablicy na podstawie tablicy słów z wejścia (words). W kroku tym (operacja .map(word =&gt; …) sprawdzamy czy powinniśmy podzielić dane słowo (czy znajduje się w tablicy wordsToHyphenate). Jeśli tak to wywołujemy metodę hyphenate na obiekcie this.hyphenator (czyli obiekcie bibliotecznym), a otrzymaną tablicę sylab łączymy znakiem “miękkiego” łącznika (ang. <em>soft hyphen</em>, encja &amp;shy­). Jeśli słowo nie powinno zostać podzielone to zwracamy je bez transformacji (return word). Ostatnim krokiem jest połączenie tablicy słów na pomocą spacji (.join(‘ ‘)).</p>
+<p>Poprzez użycie metody concat na tablicy words tworzymy jej kopię, którą następnie sortujemy. Jest to potrzebne, ponieważ operacja sortowania zmienia kolejność elementów oryginalnej tablicy. Następnie wybieramy z niej tylko N najdłuższych wyrazów a ostatecznie filtrujemy tak, aby na końcu znalazły się tylko wyrazy dłuższe niż M znaków. Sam proces dzielenia na sylaby (główna instrukcja return) polega na utworzeniu nowej tablicy na podstawie tablicy słów z wejścia (words). W kroku tym (operacja .map(word =&gt; …) sprawdzamy czy powinniśmy podzielić dane słowo (czy znajduje się w tablicy wordsToHyphenate). Jeśli tak to wywołujemy metodę hyphenate na obiekcie this.hyphenator (czyli obiekcie bibliotecznym), a otrzymaną tablicę sylab łączymy znakiem "miękkiego" łącznika (ang. <em>soft hyphen</em>, encja &amp;shy­). Jeśli słowo nie powinno zostać podzielone to zwracamy je bez transformacji (return word). Ostatnim krokiem jest połączenie tablicy słów na pomocą spacji (.join(‘ ‘)).</p>
 <h2>Podsumowanie</h2>
 <p>Myślę, że przedstawione przeze mnie rozwiązanie jest całkiem eleganckie i również Wam przypadnie do gustu. Tym bardziej, że sytuacje, w których może się przydać, z mojego doświadczenia, nie są wcale takie rzadkie. Wbudowana w Angular możliwość definiowania własnych pipe’ów sprawdza się tutaj idealnie. Dodatkowe, opcjonalne parametry, które możemy przekazać pozwalają na stworzenie rozwiązania elastycznego i rozszerzalnego. Dzięki, że dobrnęliście aż do końca, miłego dnia wszystkim!</p>
