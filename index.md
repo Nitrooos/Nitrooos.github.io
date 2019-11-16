@@ -16,15 +16,19 @@ title: Nitrooos | Myśli programisty
 # Cześć! Jestem Nitrooos.
 
 Od ponad 4 lat zawodowo zajmuję się tworzeniem stron i aplikacji internetowych.
-Aktualnie jako Senior Fullstack Developer w <a href="https://stxnext.com">
-STX&nbsp;Next</a>.
+Aktualnie jako Senior Fullstack Developer w
+<a href="https://stxnext.com" target="_blank">STX&nbsp;Next</a>.
 
 Nic więc dziwnego, że nie znalazłem czasu na stworzenie "super fancy" strony
 głównej. Prowadzę za to programistycznego <a href="/blog/">bloga</a> po
 godzinach.
 
 Moją pełną ścieżkę zawodową można prześledzić na
-<a href="https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/">LinkedIn</a>.
+<a
+  href="https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/"
+  target="_blank">
+  LinkedIn
+</a>.
 A więcej o mnie poczytać <a href="/authors/nitrooos">tutaj</a>.
 
 # Ostatnio na blogu
