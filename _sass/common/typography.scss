@@ -3,7 +3,7 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-a, figcaption, h1, h2, h3, h4, h5, li, p, pre, ul {
+a, figcaption, h1, h2, h3, h4, h5, li, p, pre, td, th, ul {
   color: $text-main;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -81,4 +81,22 @@ pre {
 ol, ul {
   list-style-type: disc;
   padding-left: 20px;
+}
+
+table {
+  border: 1px solid $border;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  width: auto;
+
+  td, th {
+    border: 1px solid $border;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    font-weight: $font-weight-bold;
+  }
 }
