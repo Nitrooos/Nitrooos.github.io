@@ -87,7 +87,9 @@ table {
   border: 1px solid $border;
   border-collapse: collapse;
   border-spacing: 0;
+  display: block;
   margin-bottom: 20px;
+  overflow-x: auto;
   width: auto;
 
   td, th {
