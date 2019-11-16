@@ -23,7 +23,7 @@ excerpt: Aplikacje tłumaczone na niektóre języki (m. in. skandynawskie, ale t
     &lt;!-- wyświetla Da•ten•schutz•er•klä•rung -->
 </pre>
 <p>gdzie • oznacza specjalną encję &amp;shy­­ normalnie nie będącą wyświetlaną przez przeglądarki, ale definiującą punkty, w których może ona dokonać podziału na sylaby w razie potrzeby.</p>
-<p>Aby to uzyskać skorzystamy z biblioteki hypher (<a href="https://github.com/bramstein/hypher">https://github.com/bramstein/hypher</a>), służącej właśnie do dzielenia słów zgodnie z gramatyką wybranego języka (ang. <em>hyphenation</em>).</p>
+<p>Aby to uzyskać skorzystamy z biblioteki hypher (<a href="https://github.com/bramstein/hypher" target="_blank">https://github.com/bramstein/hypher</a>), służącej właśnie do dzielenia słów zgodnie z gramatyką wybranego języka (ang. <em>hyphenation</em>).</p>
 <h2>Czym jest Pipe w “nowym” Angularze?</h2>
 <p>Zanim omówię implementację, krótka informacja nt. narzędzia pipe. Umożliwia ono transformację wartości wejściowej w zdefiniowany przez nas sposób, otrzymując nową wartość na wyjściu, gotową do wyświetlenia w szablonie. Aby stworzyć własny pipe wystarczy zadeklarować nową klasę implementującą interfejs PipeTransform z funkcją transform. W samym frameworku zdefiniowane są pewne standardowe transformacje, np. CurrencyPipe czy DatePipe, które można wykorzystywać&nbsp;w następujący sposób:</p>
 <pre>

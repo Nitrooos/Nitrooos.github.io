@@ -37,10 +37,16 @@ title: Nitrooos | Myśli programisty
   Aktualnie Full Stack Superhero pilnujący porządku i czystości kodu jako
   współpracownik
   <strong>
-    <a href="https://stxnext.com">STX Next</a>
+    <a
+      href="https://stxnext.com"
+      target="_blank">
+      STX Next
+    </a>
   </strong>.
   Pełną ścieżkę zawodową można prześledzić na
-  <a href="https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/">
+  <a
+    href="https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/"
+    target="_blank">
     <strong>LinkedIn</strong>
   </a>.
 </p>
@@ -49,7 +55,11 @@ title: Nitrooos | Myśli programisty
   Dawno, dawno temu... ukończyłem studia magisterskie na kierunku informatyka
   na
   <strong>
-    <a href="https://www.put.poznan.pl/">Politechnice Poznańskiej</a>
+    <a
+      href="https://www.put.poznan.pl/"
+      target="_blank">
+      Politechnice Poznańskiej
+    </a>
   </strong>
   w ramach specjalności Systemy Rozproszone. A jeszcze dawniej studia
   inżynierskie na tym samym kierunku i uczelni.
