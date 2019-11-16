@@ -22,8 +22,8 @@ różne kroki mające na celu zapewnienie tej integralności, najczęściej są 
 - aktualizacja dokumentacji technicznej, jeśli taka istnieje
 
 Dzisiejszy wpis opisuje w jaki sposób rozpocząć wdrażanie ciągłej integracji
-korzystając z popularnego serwera CI, jakim jest <a href="https://jenkins.io/">
-Jenkins</a>.
+korzystając z popularnego serwera CI, jakim jest
+<a href="https://jenkins.io/" target="_blank">Jenkins</a>.
 
 ## Ciągła integracja na przykładzie projektu z Bitbucket’a
 
@@ -103,7 +103,8 @@ przypadku Bitbucket). Jako "Branch specifier" podajemy wartość
 **/${sourceBranch}*. Tę wartość z kolei (nazwę gałęzi, na której należy wykonać
 zadanie) automatycznie dostarcza dla nas wtyczka
 <a
-  href="https://github.com/jenkinsci/bitbucket-pullrequest-builder-plugin#readme">
+  href="https://github.com/jenkinsci/bitbucket-pullrequest-builder-plugin#readme"
+  target="_blank">
   Bitbucket Pull Request Builder
 </a>
 , z której korzystamy w tej konfiguracji.
@@ -199,7 +200,11 @@ miejscach się różni, tak, aby nie było problemu także w przypadku tego serw
 🙂
 
 Aby "podpiąć" repozytorium z GitHuba skorzystamy z wtyczki
-<a href="https://github.com/jenkinsci/ghprb-plugin">GitHub Pull Request Builder</a>
+<a
+  href="https://github.com/jenkinsci/ghprb-plugin"
+  target="_blank">
+  GitHub Pull Request Builder
+</a>
 , analogicznej do użytej powyżej. Zacząć należy do skonfigurowania
 wtyczki. Można to zrobić wchodząc pod "Zarządzaj Jenkinsem" (w panelu po lewej
 stronie) a następnie "Konfiguracja systemu". Odszukujemy sekcję "GitHub Pull
