@@ -100,9 +100,13 @@ to para kluczy, którą wcześniej należy stworzyć i odpowiednio nazwać. Kluc
 prywatny jest widoczny tylko dla (i przechowywany na) Jenkinsie, publiczny musi
 zostać zgłoszony jako klucz "Read access" w odpowiednim serwisie (w tym
 przypadku Bitbucket). Jako "Branch specifier" podajemy wartość
-*/${sourceBranch}. Tę wartość z kolei (nazwę gałęzi, na której należy wykonać
-zadanie) automatycznie dostarcza dla nas wtyczka "Bitbucket Pull Request
-Builder", z której korzystamy w tej konfiguracji.
+**/${sourceBranch}*. Tę wartość z kolei (nazwę gałęzi, na której należy wykonać
+zadanie) automatycznie dostarcza dla nas wtyczka
+<a
+  href="https://github.com/jenkinsci/bitbucket-pullrequest-builder-plugin#readme">
+  Bitbucket Pull Request Builder
+</a>
+, z której korzystamy w tej konfiguracji.
 
 <figure class="app__image">
   <img
@@ -115,14 +119,14 @@ Builder", z której korzystamy w tej konfiguracji.
 
 W tej sekcji mamy najwięcej do uzupełnienia. Zaczynamy od zaznaczenia opcji
 "Bitbucket Pull Requests Builder" – korzystamy z tej wtyczki w tym przykładzie.
-W polu "Cron" podajemy "* * * * *", co oznacza, że Jenkins będzie sprawdzał co
+W polu "Cron" podajemy `"* * * * *"`, co oznacza, że Jenkins będzie sprawdzał co
 minutę repo czy nie pojawiły się nowe zmiany wymagające uruchomienia zadania.
 Następne ważne pola to "Bitbucket BasicAuth Username" i "Bitbucket BasicAuth
 Password", czyli nazwa i hasło użytkownika Bitbucket’a. Najlepiej stworzyć do
 tego dedykowanego użytkownika (w przykładzie jenkins@awesome-company.com) i dać
 mu dostęp do repozytorium. W polu "RepositoryOwner" podajemy
 organizację/użytkownika będącego właścicielem repo. Natomiast w "RepositoryName"
-podajemy nazwę repozytorium. W polu "CI Identifier" podajemy nazwę unikalną
+podajemy nazwę repozytorium. W polu "CI Identifier" podajemy nazwę *unikalną*
 pośród wszystkich zadań Jenkinsa związanych z tym repozytorium – najlepiej opis
 tego co Jenkins robi w tym zadaniu dla tego repozytorium.
 
@@ -149,9 +153,9 @@ z tego samego, czystego stanu. Zwiększa to pewność wyników, które dostarcza
 zadanie i pewność, że są one deterministyczne, nie zależą od lokalnego stanu.
 Z drugiej strony, możemy kliknąć w "Zaawansowane" i kontrolować co dokładnie ma
 być usuwane, a co nie. I tak, jak na poniższym screenshocie, możemy czyścić
-przestrzeń dla każdego zadania, ale z wyjątkiem katalogu node_modules. Pozwoli
+przestrzeń dla każdego zadania, ale z wyjątkiem katalogu *node_modules*. Pozwoli
 to na przyspieszenie budowania, ponieważ nie będzie konieczne każdorazowe
-instalowanie wszystkich paczek poprzez npm.
+instalowanie wszystkich paczek poprzez *npm*.
 
 <figure class="app__image">
   <img
@@ -166,10 +170,11 @@ Sekcja ta umożliwia zdefiniowanie przez nas właściwych kroków (skryptu) zada
 Przykładowo, jeśli nasz projekt jest standardową aplikacją Django to
 prawdopodobnie chcemy:
 
-- stworzyć nowe, lokalne, wirtualne środowisko Python (za pomocą np. virtualenv)
+- stworzyć nowe, lokalne, wirtualne środowisko Python (za pomocą np.
+  *virtualenv*)
 - aktywować to środowisko
-- zainstalować wymagane paczki poprzez pip (ewentualnie także te wymagane przez
-  npm)
+- zainstalować wymagane paczki poprzez *pip* (ewentualnie także te wymagane
+  przez *npm*)
 - uruchomić testy z odpowiednimi ustawieniami
 
 I to jest dokładnie to, co zrobi poniższy, przykładowy skrypt:
@@ -193,12 +198,13 @@ Konfiguracja tutaj jest w dużej części analogiczna, podam jednak w których
 miejscach się różni, tak, aby nie było problemu także w przypadku tego serwisu
 🙂
 
-Aby "podpiąć" repozytorium z GitHuba skorzystamy z wtyczki "GitHub Pull Request
-Builder", analogicznej do użytej powyżej. Zacząć należy do skonfigurowania
+Aby "podpiąć" repozytorium z GitHuba skorzystamy z wtyczki
+<a href="https://github.com/jenkinsci/ghprb-plugin">GitHub Pull Request Builder</a>
+, analogicznej do użytej powyżej. Zacząć należy do skonfigurowania
 wtyczki. Można to zrobić wchodząc pod "Zarządzaj Jenkinsem" (w panelu po lewej
 stronie) a następnie "Konfiguracja systemu". Odszukujemy sekcję "GitHub Pull
 Request Builder". W polu "GitHub Server API URL" wpisujemy
-https://api.github.com. Obok pola "Credentials" klikamy "Add" i tworzymy nowy
+*https://api.github.com*. Obok pola "Credentials" klikamy "Add" i tworzymy nowy
 dostęp typu "User and password", w którym wpisujemy nazwę użytkownika i hasło do
 konta na GitHubie. Dobrą praktyką jest stworzenie nowego konta na GH,
 przeznaczonego tylko dla Jenkinsa, i dodanie go jako "Collaborator" do tego repo
@@ -209,7 +215,7 @@ przykładu z Bitbucket’em, poza kilkoma różnicami:
 
 - w sekcji "Ustawienia ogólne" należy zaznaczyć "GitHub project" i podać URL do
   projektu na GitHubie
-- jako "Branch specifier" w sekcji "Repozytorium kodu" podać ${sha1} – jak
+- jako "Branch specifier" w sekcji "Repozytorium kodu" podać *${sha1}* – jak
   zaleca dokumentacja wtyczki
 - w sekcji "Wyzwalacze zadania" zaznaczyć "GitHub Pull Request Builder", wybrać
   stworzone wcześniej dostępy do konta GH
