@@ -211,7 +211,7 @@ formatowania, a efekt jego działania powinien przypominać ten z obrazka poniż
 <figure class="app__image">
   <img
     alt="Efekt działania powyższego skryptu, kombinacje możliwych kolorów i opcji formatowania"
-    src="{{ site.baseurl }}/assets/posts/2019-09-30-bash-formatowanie-tekstu/possibilities.png" />
+    src="{{ site.baseurl }}/assets/img/2019-09-30/possibilities.png" />
   <figcaption>Możliwości formatowania i kolorowania tekstu w terminalu, efekt działania powyższego skryptu</figcaption>
 </figure>
 
