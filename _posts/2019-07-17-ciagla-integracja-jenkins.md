@@ -39,7 +39,7 @@ lewym panelu:
 <figure class="app__image">
   <img
     alt="Dostępne akcje na lewym panelu administracyjnym Jenkinsa"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_1.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_1.png" />
   <figcaption>Lewy panel administracyjny Jenkinsa</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ przykładzie "awesome-app-ci"). Wybieramy "Ogólny projekt" i klikamy "OK":
 <figure class="app__image">
   <img
     alt="Widok tworzenia nowego projektu w Jenkinsie"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_2.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_2.png" />
   <figcaption>Widok tworzenia nowego projektu w Jenkinsie</figcaption>
 </figure>
 
@@ -59,7 +59,7 @@ nowy projekt:
 <figure class="app__image">
   <img
     alt="Lista projektów zawierająca nowy projekt"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_3.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_3.png" />
   <figcaption>Lista projektów zawierająca nowo utworzony "awesome-app-ci"</figcaption>
 </figure>
 
@@ -85,7 +85,7 @@ pozostawiamy opcję tę niezaznaczoną.
 <figure class="app__image">
   <img
     alt="Widok sekcji 'Ustawienia ogólne'"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_4_general.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_4_general.png" />
   <figcaption>Widok sekcji "Ustawienia ogólne" konfiguracji projektu</figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ zadanie) automatycznie dostarcza dla nas wtyczka
 <figure class="app__image">
   <img
     alt="Widok sekcji 'Repozytorium kodu' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_5_repo.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_5_repo.png" />
   <figcaption>Widok sekcji "Repozytorium kodu" konfiguracji projektu</figcaption>
 </figure>
 
@@ -140,7 +140,7 @@ się wykonanie zadania na Jenkinsie 🙂
 <figure class="app__image">
   <img
     alt="Widok sekcji 'Wyzwalacze zadania' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_6_triggers.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_6_triggers.png" />
   <figcaption>Widok sekcji "Wyzwalacze zadania" konfiguracji projektu</figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ instalowanie wszystkich paczek poprzez *npm*.
 <figure class="app__image">
   <img
     alt="Widok sekcji 'Środowisko do uruchomienia' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_7_environment.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_7_environment.png" />
   <figcaption>Widok sekcji "Środowisko do uruchomienia" konfiguracji projektu</figcaption>
 </figure>
 
@@ -183,7 +183,7 @@ I to jest dokładnie to, co zrobi poniższy, przykładowy skrypt:
 <figure class="app__image">
   <img
     alt="Widok sekcji 'Budowanie' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/step_8_build.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/step_8_build.png" />
   <figcaption>Widok sekcji "Budowanie" konfiguracji projektu</figcaption>
 </figure>
 
@@ -231,14 +231,14 @@ przykładu z Bitbucket’em, poza kilkoma różnicami:
 <figure class="app__image">
   <img
     alt="Podanie adresu URL repozytorium projektu w sekcji 'Ustawienia ogólne'"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/github_general.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/github_general.png" />
   <figcaption>Podanie adresu URL repozytorium projektu w sekcji "Ustawienia ogólne"</figcaption>
 </figure>
 
 <figure class="app__image">
   <img
     alt="Konfiguracja wtyczki Github Pull Request Builder w sekcji 'Wyzwalacze zadania'"
-    src="{{ site.baseurl }}/assets/posts/2019-07-17-ciagla-integracja-jenkins/github_triggers.png" />
+    src="{{ site.baseurl }}/assets/img/2019-07-17/github_triggers.png" />
   <figcaption>Konfiguracja wtyczki Github Pull Request Builder w sekcji "Wyzwalacze zadania"</figcaption>
 </figure>
 
