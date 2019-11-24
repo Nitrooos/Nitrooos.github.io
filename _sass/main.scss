@@ -1,12 +1,13 @@
 @import './common/reset';
 
-@import './common/highlight';
 @import './common/classes';
 @import './common/colors';
 @import './common/responsiveness';
 @import './common/typography';
 
 @import './includes/header';
+
+@import './themes/light/index';
 
 @import './authors';
 @import './blog';

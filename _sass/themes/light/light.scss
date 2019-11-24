@@ -1,0 +1,17 @@
+.app__light-theme {
+  background: white;
+  color: $text-main;
+
+  a {
+    color: $link;
+  }
+
+  code {
+    background: $code-bg;
+    border-left: 10px solid $code-border;
+  }
+
+  td, th {
+    border: 1px solid $border;
+  }
+}
