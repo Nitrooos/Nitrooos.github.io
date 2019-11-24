@@ -87,6 +87,10 @@ ol, ul {
   padding-left: 20px;
 }
 
+strong {
+  font-weight: $font-weight-bold;
+}
+
 table {
   border: 1px solid $border;
   border-collapse: collapse;
