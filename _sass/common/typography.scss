@@ -4,12 +4,10 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 a, figcaption, h1, h2, h3, h4, h5, li, p, pre, td, th, ul {
-  color: $text-main;
   font-family: Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: $link;
   font-weight: $font-weight-bold;
   text-decoration: none;
 }
@@ -65,14 +63,17 @@ img {
   max-width: 100%;
 }
 
+p {
+  margin: 20px 0;
+}
+
 pre {
   font-family: monospace;
   margin: 1rem 0;
   overflow-x: auto;
 
   code {
-    background: $code-bg;
-    border-left: 10px solid $code-border;
+    border-left-width: 10px;
     display: block;
     padding: .5rem;
   }
@@ -92,7 +93,7 @@ strong {
 }
 
 table {
-  border: 1px solid $border;
+  border-width: 1px;
   border-collapse: collapse;
   border-spacing: 0;
   display: block;
@@ -101,7 +102,7 @@ table {
   width: auto;
 
   td, th {
-    border: 1px solid $border;
+    border-width: 1px;
     padding: 8px;
     text-align: left;
   }

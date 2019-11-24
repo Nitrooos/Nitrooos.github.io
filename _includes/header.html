@@ -2,18 +2,14 @@
   <div class="header__content app__content">
     <div>
       <h3 class="header__title">
-        <a
-          class="app__link"
-          href="/">
-          Nitrooos
-        </a>
+        <a href="/">Nitrooos</a>
       </h3>
       <h5 class="header__subtitle">Myśli programisty</h5>
     </div>
     <nav class="header__navigation">
       {% for item in site.data.navigation %}
         <a
-          class="app__link"
+          class="header__link"
           href="{{ item.link }}">
           {{ item.name }}
         </a>

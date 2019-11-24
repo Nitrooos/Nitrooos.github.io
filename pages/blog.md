@@ -6,7 +6,6 @@ permalink: '/blog/'
   <article class="blog__post-lead">
     <h1 class="blog__post-title">
       <a
-        class="app__link"
         href="{{ post.url }}">
         {{ post.title }}
       </a>

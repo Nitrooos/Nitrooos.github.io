@@ -1,11 +1,16 @@
 .header {
-  background: $bg-dark;
-
   &__content {
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  &__link {
+    margin: 0 20px;
+
+    &:first-child { margin-left:  0; }
+    &:last-child  { margin-right: 0; }
   }
 
   &__navigation {
