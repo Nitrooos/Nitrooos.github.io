@@ -7,7 +7,7 @@ title: Nitrooos | Myśli programisty
 <aside class="authors__image">
   <figure>
     <img
-      src="{{ site.baseurl }}/assets/nitrooos.png"
+      src="{{ site.baseurl }}/assets/img/nitrooos.png"
       alt=""
       width="188"
       height="188" />
