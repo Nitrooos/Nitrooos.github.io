@@ -78,9 +78,17 @@ pre {
   }
 }
 
+ol {
+  list-style-type: decimal;
+}
+
 ol, ul {
-  list-style-type: disc;
+  margin: 20px 0;
   padding-left: 20px;
+}
+
+strong {
+  font-weight: $font-weight-bold;
 }
 
 table {
@@ -88,7 +96,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   display: block;
-  margin-bottom: 20px;
+  margin: 20px 0;
   overflow-x: auto;
   width: auto;
 
@@ -101,4 +109,8 @@ table {
   th {
     font-weight: $font-weight-bold;
   }
+}
+
+ul {
+  list-style-type: disc;
 }
