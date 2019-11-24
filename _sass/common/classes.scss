@@ -15,18 +15,6 @@
     margin: 20px 0;
   }
 
-  &__link {
-    margin: 0 20px;
-    text-decoration: none;
-
-    &:first-child { margin-left:  0; }
-    &:last-child  { margin-right: 0; }
-
-    &, &:hover, &:focus, &:active, &:visited {
-      color: $text-link;
-    }
-  }
-
   &__post-meta {
     margin: 20px 0;
   }

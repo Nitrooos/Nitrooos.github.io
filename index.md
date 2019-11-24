@@ -36,7 +36,6 @@ A więcej o mnie poczytać <a href="/authors/nitrooos">tutaj</a>.
   <article class="blog__post-lead">
     <h3 class="blog__post-title">
       <a
-        class="app__link"
         href="{{ post.url }}">
         {{ post.title }}
       </a>
