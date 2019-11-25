@@ -36,32 +36,26 @@ kod tej aplikacji hostowany jest w serwisie Bitbucket.
 Zaczynamy od stworzenia nowego projektu, w tym celu klikamy "Nowy Projekt" w
 lewym panelu:
 
-<figure class="app__image">
-  <img
-    alt="Dostępne akcje na lewym panelu administracyjnym Jenkinsa"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_1.png" />
-  <figcaption>Lewy panel administracyjny Jenkinsa</figcaption>
-</figure>
+![
+  Dostępne akcje na lewym panelu administracyjnym Jenkinsa
+]({{ site.baseurl }}/assets/img/2019-07-17/step_1.png)
+*Lewy panel administracyjny Jenkinsa*
 
 Przejdziemy do nowego ekranu, w którym możemy wpisać nazwę dla projektu (w tym
 przykładzie "awesome-app-ci"). Wybieramy "Ogólny projekt" i klikamy "OK":
 
-<figure class="app__image">
-  <img
-    alt="Widok tworzenia nowego projektu w Jenkinsie"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_2.png" />
-  <figcaption>Widok tworzenia nowego projektu w Jenkinsie</figcaption>
-</figure>
+![
+  Widok tworzenia nowego projektu w Jenkinsie
+]({{ site.baseurl }}/assets/img/2019-07-17/step_2.png)
+*Widok tworzenia nowego projektu w Jenkinsie*
 
 W rezultacie na stronie głównej panelu administracyjnego Jenkins ukaże się nasz
 nowy projekt:
 
-<figure class="app__image">
-  <img
-    alt="Lista projektów zawierająca nowy projekt"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_3.png" />
-  <figcaption>Lista projektów zawierająca nowo utworzony "awesome-app-ci"</figcaption>
-</figure>
+![
+  Lista projektów zawierająca nowy projekt
+]({{ site.baseurl }}/assets/img/2019-07-17/step_3.png)
+*Lista projektów zawierająca nowo utworzony "awesome-app-ci"*
 
 Następnie klikamy w nazwę projektu i przechodzimy do widoku zarządzania nim. Po
 lewej stronie widnieje kilka opcji zarządzania projektem, m. in. umożliwiająca
@@ -82,12 +76,10 @@ serwer. Wówczas użytkownik przed uruchomieniem zadania może podać parametr
 (nazwę gałęzi, taga, hash commita itp), który powinien zostać wgrany. Tutaj
 pozostawiamy opcję tę niezaznaczoną.
 
-<figure class="app__image">
-  <img
-    alt="Widok sekcji 'Ustawienia ogólne'"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_4_general.png" />
-  <figcaption>Widok sekcji "Ustawienia ogólne" konfiguracji projektu</figcaption>
-</figure>
+![
+  Widok sekcji 'Ustawienia ogólne'
+]({{ site.baseurl }}/assets/img/2019-07-17/step_4_general.png)
+*Widok sekcji "Ustawienia ogólne" konfiguracji projektu*
 
 ### Wskazanie repozytorium z kodem
 
@@ -109,12 +101,10 @@ zadanie) automatycznie dostarcza dla nas wtyczka
 </a>
 , z której korzystamy w tej konfiguracji.
 
-<figure class="app__image">
-  <img
-    alt="Widok sekcji 'Repozytorium kodu' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_5_repo.png" />
-  <figcaption>Widok sekcji "Repozytorium kodu" konfiguracji projektu</figcaption>
-</figure>
+![
+  Widok sekcji 'Repozytorium kodu' konfiguracji projektu
+]({{ site.baseurl }}/assets/img/2019-07-17/step_5_repo.png)
+*Widok sekcji "Repozytorium kodu" konfiguracji projektu*
 
 ### Dane dostępowe i ustawienia budowania
 
@@ -137,12 +127,10 @@ pull requeście. Dla przykładu tutaj, wystarczy ładnie poprosić w komentarzu 
 requestu na Bitbuckecie "test this please" a po chwili automatycznie rozpocznie
 się wykonanie zadania na Jenkinsie 🙂
 
-<figure class="app__image">
-  <img
-    alt="Widok sekcji 'Wyzwalacze zadania' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_6_triggers.png" />
-  <figcaption>Widok sekcji "Wyzwalacze zadania" konfiguracji projektu</figcaption>
-</figure>
+![
+  Widok sekcji 'Wyzwalacze zadania' konfiguracji projektu
+]({{ site.baseurl }}/assets/img/2019-07-17/step_6_triggers.png)
+*Widok sekcji "Wyzwalacze zadania" konfiguracji projektu*
 
 ### Środowisko
 
@@ -158,12 +146,10 @@ przestrzeń dla każdego zadania, ale z wyjątkiem katalogu *node_modules*. Pozw
 to na przyspieszenie budowania, ponieważ nie będzie konieczne każdorazowe
 instalowanie wszystkich paczek poprzez *npm*.
 
-<figure class="app__image">
-  <img
-    alt="Widok sekcji 'Środowisko do uruchomienia' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_7_environment.png" />
-  <figcaption>Widok sekcji "Środowisko do uruchomienia" konfiguracji projektu</figcaption>
-</figure>
+![
+  Widok sekcji 'Środowisko do uruchomienia' konfiguracji projektu
+]({{ site.baseurl }}/assets/img/2019-07-17/step_7_environment.png)
+*Widok sekcji "Środowisko do uruchomienia" konfiguracji projektu*
 
 ### Budowanie
 
@@ -180,12 +166,10 @@ prawdopodobnie chcemy:
 
 I to jest dokładnie to, co zrobi poniższy, przykładowy skrypt:
 
-<figure class="app__image">
-  <img
-    alt="Widok sekcji 'Budowanie' konfiguracji projektu"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/step_8_build.png" />
-  <figcaption>Widok sekcji "Budowanie" konfiguracji projektu</figcaption>
-</figure>
+![
+  Widok sekcji 'Budowanie' konfiguracji projektu
+]({{ site.baseurl }}/assets/img/2019-07-17/step_8_build.png)
+*Widok sekcji "Budowanie" konfiguracji projektu*
 
 Dodatkowo, istnieje sekcja "Akcje po zadaniu", w której możemy zdefiniować co
 Jenkins ma zrobić po zakończeniu wykonania zadania. Częstym przykładem tutaj
@@ -228,19 +212,15 @@ przykładu z Bitbucket’em, poza kilkoma różnicami:
   otrzymywał od GitHuba informację o konieczności uruchomienia zadania, a nie
   musiał samemu sprawdzać czy ma coś do roboty np. co minutę
 
-<figure class="app__image">
-  <img
-    alt="Podanie adresu URL repozytorium projektu w sekcji 'Ustawienia ogólne'"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/github_general.png" />
-  <figcaption>Podanie adresu URL repozytorium projektu w sekcji "Ustawienia ogólne"</figcaption>
-</figure>
+![
+  Podanie adresu URL repozytorium projektu w sekcji 'Ustawienia ogólne'
+]({{ site.baseurl }}/assets/img/2019-07-17/github_general.png)
+*Podanie adresu URL repozytorium projektu w sekcji "Ustawienia ogólne"*
 
-<figure class="app__image">
-  <img
-    alt="Konfiguracja wtyczki Github Pull Request Builder w sekcji 'Wyzwalacze zadania'"
-    src="{{ site.baseurl }}/assets/img/2019-07-17/github_triggers.png" />
-  <figcaption>Konfiguracja wtyczki Github Pull Request Builder w sekcji "Wyzwalacze zadania"</figcaption>
-</figure>
+![
+  Konfiguracja wtyczki Github Pull Request Builder w sekcji 'Wyzwalacze zadania'
+]({{ site.baseurl }}/assets/img/2019-07-17/github_triggers.png)
+*Konfiguracja wtyczki Github Pull Request Builder w sekcji "Wyzwalacze zadania"*
 
 ## Ciągła integracja – podsumowanie
 

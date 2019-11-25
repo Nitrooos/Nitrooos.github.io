@@ -208,12 +208,11 @@ done
 Przedstawiony skrypt wyświetli wszystkie dostępne kombinacje kolorów i opcji
 formatowania, a efekt jego działania powinien przypominać ten z obrazka poniżej:
 
-<figure class="app__image">
-  <img
-    alt="Efekt działania powyższego skryptu, kombinacje możliwych kolorów i opcji formatowania"
-    src="{{ site.baseurl }}/assets/img/2019-09-30/possibilities.png" />
-  <figcaption>Możliwości formatowania i kolorowania tekstu w terminalu, efekt działania powyższego skryptu</figcaption>
-</figure>
+![
+  Efekt działania powyższego skryptu, kombinacje możliwych kolorów i opcji
+  formatowania
+]({{ site.baseurl }}/assets/img/2019-09-30/possibilities.png)
+*Możliwości formatowania i kolorowania tekstu w terminalu, efekt działania powyższego skryptu*
 
 ## Niech stracę! Pro Tip numer 2: rozszerzenie możliwości skryptu o formatowanie tekstu
 
