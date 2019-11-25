@@ -60,11 +60,18 @@ h5 {
 }
 
 img {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
 }
 
 p {
   margin: 20px 0;
+
+  img + em {
+    display: block;
+    text-align: center;
+  }
 }
 
 pre {
