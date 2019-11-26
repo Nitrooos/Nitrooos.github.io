@@ -12,4 +12,5 @@ permalink: '/blog/'
     </h1>
     <p>{{ post.excerpt }}</p>
   </article>
+  <hr/>
 {% endfor %}
