@@ -3,7 +3,7 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-a, figcaption, h1, h2, h3, h4, h5, li, p, pre, td, th, ul {
+a, h1, h2, h3, h4, h5, li, p, pre, td, th, ul {
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -22,10 +22,6 @@ code {
 }
 
 em {
-  font-style: italic;
-}
-
-figcaption {
   font-style: italic;
 }
 
@@ -59,12 +55,23 @@ h5 {
   margin: 20px 0 5px 0;
 }
 
+hr {
+  margin: 0;
+}
+
 img {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
 }
 
 p {
   margin: 20px 0;
+
+  img + em {
+    display: block;
+    text-align: center;
+  }
 }
 
 pre {

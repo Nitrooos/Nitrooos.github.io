@@ -1,4 +1,11 @@
 .app__light-theme {
+  $bg-dark: #f5f5f7;
+  $border: #dedee5;
+  $code-bg: #fafafa;
+  $code-border: #f5f5f5;
+  $link: #3ba9d2;
+  $text-main: #6d7680;
+
   background: white;
   color: $text-main;
 
@@ -13,6 +20,11 @@
 
   header {
     background: $bg-dark;
+  }
+
+  hr {
+    border: 0;
+    border-bottom: 1px solid $border;
   }
 
   td, th {

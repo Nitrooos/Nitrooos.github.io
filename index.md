@@ -42,4 +42,5 @@ A więcej o mnie poczytać <a href="/authors/nitrooos">tutaj</a>.
     </h3>
     <p>{{ post.excerpt }}</p>
   </article>
+  <hr/>
 {% endfor %}
