@@ -6,7 +6,7 @@ tags:
 - chrome
 - plugin
 permalink: "/2019/12/dark-reader/"
-excerpt: "Kilka słów o rozszerzeniu do Google Chrome, które odkryłem kilka dni
+excerpt: "Kilka słów o rozszerzeniu do przeglądarki, które odkryłem kilka dni
   temu. Dark Reader wyświetli każdą odwiedzaną stronę w ciemnym motywie. I robi
   to naprawdę dobrze!"
 ---
