@@ -14,6 +14,34 @@
           {{ item.name }}
         </a>
       {% endfor %}
+
+      {% if page.identifier %}
+        {% if page.language == "english" %}
+          {% assign mpost = site.posts | where: "identifier", page.identifier | where: "language", "polish" | first %}
+          {% assign mpage = site.pages | where: "identifier", page.identifier | where: "language", "polish" | first %}
+          {% assign mauthor = site.authors | where: "name", page.name | where: "language", "polish" | first %}
+        {% elsif page.language == "polish" %}
+          {% assign mpost = site.posts | where: "identifier", page.identifier | where: "language", "english" | first %}
+          {% assign mpage = site.pages | where: "identifier", page.identifier | where: "language", "english" | first %}
+          {% assign mauthor = site.authors | where: "name", page.name | where: "language", "english" | first %}
+        {% endif %}
+      {% else %}
+        {% if page.language == "english" %}
+          {% assign malternative = site.pages | where: "identifier", "blog" | where: "language", "polish" | first %}
+        {% elsif page.language == "polish" %}
+          {% assign malternative = site.pages | where: "identifier", "blog" | where: "language", "english" | first %}
+        {% endif %}
+      {% endif %}
+
+      {% if mpost %}
+        <a href="{{ mpost.url }}" class="app__flag app__flag--{{ mpost.language }}"></a>
+      {% elsif mpage %}
+        <a href="{{ mpage.url }}" class="app__flag app__flag--{{ mpage.language }}"></a>
+      {% elsif mauthor %}
+        <a href="{{ mauthor.url }}" class="app__flag app__flag--{{ mauthor.language }}"></a>
+      {% else %}
+         <a href="{{ malternative.url }}" class="app__flag app__flag--{{ malternative.language }}"></a>
+      {% endif %}
     </nav>
   </div>
 </header>
