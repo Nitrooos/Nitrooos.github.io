@@ -15,32 +15,28 @@
         </a>
       {% endfor %}
 
-      {% if page.identifier %}
-        {% if page.language == "english" %}
-          {% assign mpost = site.posts | where: "identifier", page.identifier | where: "language", "polish" | first %}
-          {% assign mpage = site.pages | where: "identifier", page.identifier | where: "language", "polish" | first %}
-          {% assign mauthor = site.authors | where: "name", page.name | where: "language", "polish" | first %}
-        {% elsif page.language == "polish" %}
-          {% assign mpost = site.posts | where: "identifier", page.identifier | where: "language", "english" | first %}
-          {% assign mpage = site.pages | where: "identifier", page.identifier | where: "language", "english" | first %}
-          {% assign mauthor = site.authors | where: "name", page.name | where: "language", "english" | first %}
-        {% endif %}
-      {% else %}
-        {% if page.language == "english" %}
-          {% assign malternative = site.pages | where: "identifier", "blog" | where: "language", "polish" | first %}
-        {% elsif page.language == "polish" %}
-          {% assign malternative = site.pages | where: "identifier", "blog" | where: "language", "english" | first %}
-        {% endif %}
+      {% if page.language == "english" %}
+        {% assign alt_language = "polish" %}
+      {% elsif page.language == "polish" %}
+        {% assign alt_language = "english" %}
       {% endif %}
 
-      {% if mpost %}
-        <a href="{{ mpost.url }}" class="app__flag app__flag--{{ mpost.language }}"></a>
-      {% elsif mpage %}
-        <a href="{{ mpage.url }}" class="app__flag app__flag--{{ mpage.language }}"></a>
-      {% elsif mauthor %}
-        <a href="{{ mauthor.url }}" class="app__flag app__flag--{{ mauthor.language }}"></a>
+      {% if page.identifier %}
+        {% assign alt_post = site.posts | where: "identifier", page.identifier | where: "language", alt_language | first %}
+        {% assign alt_page = site.pages | where: "identifier", page.identifier | where: "language", alt_language | first %}
+        {% assign alt_author = site.authors | where: "name", page.name | where: "language", alt_language | first %}
       {% else %}
-         <a href="{{ malternative.url }}" class="app__flag app__flag--{{ malternative.language }}"></a>
+        {% assign alt_alternative = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
+      {% endif %}
+
+      {% if alt_post %}
+        <a href="{{ alt_post.url }}" class="app__flag app__flag--{{ alt_post.language }}"></a>
+      {% elsif alt_page %}
+        <a href="{{ alt_page.url }}" class="app__flag app__flag--{{ alt_page.language }}"></a>
+      {% elsif alt_author %}
+        <a href="{{ alt_author.url }}" class="app__flag app__flag--{{ alt_author.language }}"></a>
+      {% else %}
+         <a href="{{ alt_alternative.url }}" class="app__flag app__flag--{{ alt_alternative.language }}"></a>
       {% endif %}
     </nav>
   </div>
