@@ -36,10 +36,13 @@ collections:
 
 defaults:
   - scope:
-      path: ""
-      type: "posts"
+      path: "*/en"
     values:
-      layout: "post"
+      language: "english"
+  - scope:
+      path: "*/pl"
+    values:
+      language: "polish"
   - scope:
       path: ""
     values:

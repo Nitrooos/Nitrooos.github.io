@@ -1,8 +1,10 @@
 ---
 name: Bartosz Kostaniak
+identifier: author_bk
 position: Redaktor
 short_name: nitrooos
 title: Nitrooos | Myśli programisty
+permalink: /authors/nitrooos
 ---
 <aside class="authors__image">
   <figure>

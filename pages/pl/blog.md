@@ -1,5 +1,6 @@
 ---
 title: Blog
+identifier: blog
 permalink: '/blog/'
 ---
 {% for post in site.posts %}

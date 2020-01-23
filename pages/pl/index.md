@@ -1,5 +1,7 @@
 ---
 title: Nitrooos | Myśli programisty
+identifier: index
+permalink: '/'
 ---
 
 <aside class="authors__image">

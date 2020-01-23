@@ -1,5 +1,6 @@
 ---
 title: Odkrycie miesiąca - Dark Reader!
+identifier: dark-reader
 date: 2019-12-08 18:15:00.000000000 +02:00
 tags:
 - dark theme
