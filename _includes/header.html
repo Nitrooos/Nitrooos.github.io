@@ -4,7 +4,9 @@
       <h3 class="header__title">
         <a href="/">Nitrooos</a>
       </h3>
-      <h5 class="header__subtitle">Myśli programisty</h5>
+      <h5 class="header__subtitle">
+        {{ site.data.translations[page.language].main_phrase }}
+      </h5>
     </div>
     <nav class="header__navigation">
       {% for item in site.data.navigation[page.language] %}
@@ -36,7 +38,7 @@
       {% elsif alt_author %}
         <a href="{{ alt_author.url }}" class="app__flag app__flag--{{ alt_author.language }}"></a>
       {% else %}
-         <a href="{{ alt_alternative.url }}" class="app__flag app__flag--{{ alt_alternative.language }}"></a>
+        <a href="{{ alt_alternative.url }}" class="app__flag app__flag--{{ alt_alternative.language }}"></a>
       {% endif %}
     </nav>
   </div>
