@@ -7,7 +7,7 @@
       <h5 class="header__subtitle">Myśli programisty</h5>
     </div>
     <nav class="header__navigation">
-      {% for item in site.data.navigation %}
+      {% for item in site.data.navigation[page.language] %}
         <a
           class="header__link"
           href="{{ item.link }}">
