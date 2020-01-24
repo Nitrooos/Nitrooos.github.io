@@ -24,21 +24,14 @@
       {% endif %}
 
       {% if page.identifier %}
-        {% assign alt_post = site.posts | where: "identifier", page.identifier | where: "language", alt_language | first %}
-        {% assign alt_page = site.pages | where: "identifier", page.identifier | where: "language", alt_language | first %}
-        {% assign alt_author = site.authors | where: "name", page.name | where: "language", alt_language | first %}
+        {% assign translatable_documents = site.documents | concat: site.pages %}
+        {% assign alt_doc = translatable_documents | where: "identifier", page.identifier | where: "language", alt_language | first %}
       {% else %}
-        {% assign alt_alternative = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
+        {% assign alt_doc = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
       {% endif %}
 
-      {% if alt_post %}
-        <a href="{{ alt_post.url }}" class="app__flag app__flag--{{ alt_post.language }}"></a>
-      {% elsif alt_page %}
-        <a href="{{ alt_page.url }}" class="app__flag app__flag--{{ alt_page.language }}"></a>
-      {% elsif alt_author %}
-        <a href="{{ alt_author.url }}" class="app__flag app__flag--{{ alt_author.language }}"></a>
-      {% else %}
-        <a href="{{ alt_alternative.url }}" class="app__flag app__flag--{{ alt_alternative.language }}"></a>
+      {% if site.multilingual %}
+        <a href="{{ alt_doc.url }}" class="app__flag app__flag--{{ alt_doc.language }}"></a>
       {% endif %}
     </nav>
   </div>
