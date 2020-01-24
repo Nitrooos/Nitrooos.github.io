@@ -34,7 +34,8 @@ Moją pełną ścieżkę zawodową można prześledzić na
 A więcej o mnie poczytać <a href="/authors/nitrooos">tutaj</a>.
 
 # Ostatnio na blogu
-{% for post in site.posts limit:3 %}
+{% assign polish_posts = site.posts | where: "language", "polish" %}
+{% for post in polish_posts limit: 3 %}
   <article class="blog__post-lead">
     <h3 class="blog__post-title">
       <a
