@@ -1,4 +1,10 @@
-- name: Blog
-  link: /blog/
-- name: O mnie
-  link: /authors/nitrooos
+polish:
+  - name: Blog
+    link: /blog/
+  - name: O mnie
+    link: /authors/nitrooos
+english:
+  - name: Blog
+    link: /en/blog/
+  - name: About me
+    link: /authors/en/nitrooos

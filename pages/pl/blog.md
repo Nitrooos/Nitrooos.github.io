@@ -1,8 +1,10 @@
 ---
 title: Blog
+identifier: blog
 permalink: '/blog/'
 ---
-{% for post in site.posts %}
+{% assign polish_posts = site.posts | where: "language", "polish" %}
+{% for post in polish_posts %}
   <article class="blog__post-lead">
     <h1 class="blog__post-title">
       <a
