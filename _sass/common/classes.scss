@@ -4,6 +4,10 @@
     margin: 0 auto;
     overflow-x: hidden;
     padding: 10px 40px 10px 20px;
+
+    @media #{$phone} {
+      padding: 10px 15px;
+    }
   }
 
   &__post-meta {
