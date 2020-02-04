@@ -1,6 +1,7 @@
 ---
 title: Zarządzanie wydaniami aplikacji - Git workflow
 date: 2019-05-08 21:00:05.000000000 +02:00
+identifier: managing-releases-git
 categories:
 - DevOps
 - Na dłużej

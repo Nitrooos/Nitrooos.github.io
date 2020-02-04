@@ -1,6 +1,7 @@
 ---
 title: Mechanizm uwierzytelniania na serwerach przedprodukcyjnych
 date: 2019-04-24 16:00:10.000000000 +02:00
+identifier: authentication-on-preprod-servers
 categories:
 - Bezpieczeństwo
 - DevOps
