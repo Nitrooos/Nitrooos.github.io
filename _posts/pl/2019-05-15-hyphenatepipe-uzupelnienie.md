@@ -2,6 +2,7 @@
 layout: post
 title: HyphenatePipe - uzupełnienie do ostatniego wpisu
 date: 2019-05-15 20:00:54.000000000 +02:00
+identifier: hyphenation-appendix
 type: post
 parent_id: '0'
 published: true

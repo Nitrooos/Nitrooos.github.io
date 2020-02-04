@@ -1,6 +1,7 @@
 ---
 title: Geolokalizacja użytkowników za pomocą GeoLite2
 date: 2019-06-20 20:00:04.000000000 +02:00
+identifier: geolite2
 categories:
 - Backend
 - Polski

@@ -1,6 +1,7 @@
 ---
 title: Bash – parsowanie argumentów
 date: 2019-09-04 20:00:00.000000000 +02:00
+identifier: bash-parsing-arguments
 tags:
 - Bash
 - DevOps

@@ -1,6 +1,7 @@
 ---
 title: Hasła użytkowników i ich bezpieczne resetowanie
 date: 2019-03-13 20:57:11.000000000 +01:00
+identifier: reset-user-password
 categories:
 - Bezpieczeństwo
 - Na dłużej

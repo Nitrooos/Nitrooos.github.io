@@ -1,6 +1,7 @@
 ---
 title: Ciągła integracja w kontekście testów aplikacji i Jenkinsa
 date: 2019-07-17 20:00:00.000000000 +02:00
+identifier: ci-jenkins
 tags:
 - DevOps
 - Jenkins

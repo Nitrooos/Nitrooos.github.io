@@ -28,9 +28,11 @@
         {% if page.identifier %}
           {% assign translatable_documents = site.documents | concat: site.pages %}
           {% assign alt_doc = translatable_documents | where: "identifier", page.identifier | where: "language", alt_language | first %}
-        {% else %}
-          {% assign alt_doc = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
         {% endif %}
+
+        {% unless alt_doc %}
+          {% assign alt_doc = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
+        {% endunless %}
 
         <a href="{{ alt_doc.url }}" class="app__flag app__flag--{{ alt_doc.language }}"></a>
       {% endif %}

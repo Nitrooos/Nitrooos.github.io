@@ -1,6 +1,7 @@
 ---
 title: Ikony w aplikacji internetowej - bitmapy, plik ikon czy SVG?
 date: 2019-05-31 20:00:54.000000000 +02:00
+identifier: icons-internet-aplications
 categories:
 - Frontend
 - Na dłużej

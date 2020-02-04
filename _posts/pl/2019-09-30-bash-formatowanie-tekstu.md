@@ -1,6 +1,7 @@
 ---
 title: Bash – formatowanie wyświetlanego tekstu
 date: 2019-09-30 20:00:00.000000000 +02:00
+identifier: bash-formatting-text
 tags:
 - Bash
 - DevOps

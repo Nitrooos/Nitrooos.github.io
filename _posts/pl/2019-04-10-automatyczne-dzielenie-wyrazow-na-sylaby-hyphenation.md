@@ -1,6 +1,7 @@
 ---
 title: Hyphenation - automatyczne dzielenie wyrazów na sylaby
 date: 2019-04-10 16:00:34.000000000 +02:00
+identifier: hyphenation
 categories:
 - Frontend
 - Na dłużej
