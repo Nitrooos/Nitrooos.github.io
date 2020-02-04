@@ -18,25 +18,28 @@ permalink: /authors/nitrooos
   </figure>
 </aside>
 <p>
-  Od ponad 4 lat zawodowo zajmuję się tworzeniem stron i aplikacji
+  Od niemal 5 lat zawodowo zajmuję się tworzeniem stron i aplikacji
   internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać
-  sensowny frontend w Angularze/Vue.js, stworzyć logikę kodu backendowego w
+  sensowny frontend w Angularze/Vue.js/React, stworzyć logikę kodu backendowego w
   Pythonie, podłubać w strukturze bazy danych czy posprzątać i umieścić
   projektowy bałagan w eleganckich kontenerach. A do tego pamięta przesunąć
   odpowedni "ticket" w Jirze ;)
 </p>
 # Doświadczenie
+
+Moja praca projektowa obejmuje m. in.
+
+* rozbudowę i utrzymywanie aplikacji umożliwającej sprzedaż biletów na wydarzenia
+teatralne, współpracującej z jedną z największych marek lotniczych
+* przepisanie aplikacji służącej do składania wniosków o finansowanie maszyn dla
+światowego lidera w produkcji narzędzi do przetwarzania metalu i jego obróbki laserowej
+* przepisanie widoku aplikacji umożliwiającej składanie wniosków kredytowych
+przedsiębiorcom dla jednego z największych graczy sektora bankowego
+* stworzenie od zera zbioru aplikacji desktopowych w środowisku OpenFin,
+komunikujących się ze sobą, dla dużej firmy tradingowej
+
 <p>
-  Moja praca projektowa obejmuje m. in. rozbudowę i utrzymywanie aplikacji
-  umożliwającej sprzedaż biletów na wydarzenia teatralne, współpracującej z
-  jedną z największych marek lotniczych, przepisanie aplikacji służącej do
-  składania wniosków o finansowanie maszyn dla światowego lidera w produkcji
-  narzędzi do przetwarzania metalu i jego obróbki laserowej, przepisanie
-  widoku aplikacji umożliwiającej składanie wniosków kredytowych
-  przedsiębiorcom dla jednego z największych graczy sektora bankowego.
-</p>
-<p>
-  Aktualnie Full Stack Superhero pilnujący porządku i czystości kodu jako
+  Aktualnie Senior Fullstack Superhero pilnujący porządku i czystości kodu jako
   współpracownik
   <strong>
     <a
