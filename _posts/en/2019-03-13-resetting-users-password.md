@@ -1,6 +1,6 @@
 ---
 title: Secure mechanism of password reset
-date: 2020-01-16 20:00:00.000000000 +01:00
+date: 2020-02-02 18:00:00.000000000 +01:00
 identifier: reset-user-password
 categories:
 - en
