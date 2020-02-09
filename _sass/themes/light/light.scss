@@ -11,6 +11,11 @@
 
   a {
     color: $link;
+
+    &.app__button {
+      background-color: $link;
+      color: $bg-dark;
+    }
   }
 
   code {

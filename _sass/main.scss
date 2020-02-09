@@ -1,19 +1,20 @@
 @import './common/reset';
 @import './common/responsiveness';
-
-@import './common/classes';
 @import './common/flags';
 @import './common/typography';
 
-@import './includes/header';
-
 @import './themes/light/index';
 
-@import './authors';
-@import './blog';
+@import './common/classes';
+
+@import './includes/header';
+
+@import './authors/authors';
+@import './pages/blog';
+@import './pages/index';
 
 .main {
-  margin: 40px auto;
+  margin: 0 auto 40px auto;
   padding: 0 20px;
 
   @media #{$phone} {

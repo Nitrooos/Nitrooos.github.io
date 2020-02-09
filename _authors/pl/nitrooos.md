@@ -17,6 +17,9 @@ permalink: /authors/nitrooos
     <figcaption class="authors__image-caption">To ja!</figcaption>
   </figure>
 </aside>
+
+# Cześć! Jestem Nitrooos.
+
 <p>
   Od niemal 5 lat zawodowo zajmuję się tworzeniem stron i aplikacji
   internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać

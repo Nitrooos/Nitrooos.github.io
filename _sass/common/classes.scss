@@ -1,6 +1,13 @@
 .app {
+  &__button {
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
+
   &__content {
-    max-width: 1000px;
+    max-width: 45rem;
     margin: 0 auto;
     overflow-x: hidden;
     padding: 10px 40px 10px 20px;

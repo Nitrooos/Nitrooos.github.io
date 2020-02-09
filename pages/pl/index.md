@@ -47,3 +47,8 @@ A więcej o mnie poczytać <a href="/authors/nitrooos">tutaj</a>.
   </article>
   <hr/>
 {% endfor %}
+
+{% assign blog_page = site.data.navigation.polish | where: name, 'blog' | first %}
+<div class="index__posts-below">
+  <a class="app__button" href="{{ blog_page.link }}">Więcej postów</a>
+</div>
