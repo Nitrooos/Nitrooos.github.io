@@ -17,6 +17,8 @@ permalink: /authors/en/nitrooos
   </figure>
 </aside>
 
+# Hi! I’m Nitrooos.
+
 From almost 5 years I have worked on creating websites and internet applications.
 Usually as a Do-everything-man who can write a sensible frontend in
 Angular/Vue.js/React, create a backend code logic in Python, adjust the database

@@ -13,7 +13,7 @@
 @import './blog';
 
 .main {
-  margin: 40px auto;
+  margin: 0 auto 40px auto;
   padding: 0 20px;
 
   @media #{$phone} {
