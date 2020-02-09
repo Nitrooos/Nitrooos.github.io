@@ -45,7 +45,7 @@ defaults:
     values:
       language: "polish"
   - scope:
-      type: "post"
+      type: "posts"
     values:
       layout: "post"
   - scope:
