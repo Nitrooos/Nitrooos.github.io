@@ -43,3 +43,8 @@ You can also read more about me [here](/authors/en/nitrooos).
   </article>
   <hr/>
 {% endfor %}
+
+{% assign blog_page = site.data.navigation.english | where: name, 'blog' | first %}
+<div class="index__posts-below">
+  <a class="app__button" href="{{ blog_page.link }}">More posts</a>
+</div>
