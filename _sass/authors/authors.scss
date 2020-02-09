@@ -1,7 +1,7 @@
 .authors {
   &__image {
     float: right;
-    margin: 40px 30px;
+    margin: 40px 0 40px 30px;
 
     @media #{$phone} {
       display: flex;
