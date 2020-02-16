@@ -7,7 +7,6 @@ categories:
 - frontend
 tags:
 - angular
-- code
 - hyphenate
 - pipe
 excerpt: Applications translated to some of the languages (e.g. Scandinavian,

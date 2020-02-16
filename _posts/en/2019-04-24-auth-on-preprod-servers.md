@@ -4,7 +4,6 @@ date: 2020-02-05 20:00:00.000000000 +02:00
 identifier: authentication-on-preprod-servers
 categories:
 - en
-- security
 - devops
 tags:
 - basic auth
