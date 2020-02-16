@@ -28,10 +28,10 @@ excerpt: Klient zmienia co chwilę zdanie co powinno zostać wgrane na serwer st
 <p>Zakładamy, że główną gałęzią, odzwierciedlającą stan serwera produkcyjnego (ang. <em>live</em>) jest gałąź <em>master</em>. W tym scenariuszu tworzymy nową gałąź dla zadania (nazwijmy ją <em>task_1</em>), wychodzącą z gałęzi <em>master</em>:</p>
 <pre>
     $ git checkout master
-    $ git pull origin master
+    $ git pull
     $ git checkout -b task_1
 </pre>
-<p>Ważne jest, aby uaktualnić lokalny stan gałęzi <em>master</em>, najprościej zrobić to poprzez wydanie polecenia "git pull origin master". Dzięki temu mamy pewność, że pracujemy na aktualnej wersji kodu napędzającej produkcję.</p>
+<p>Ważne jest, aby uaktualnić lokalny stan gałęzi <em>master</em>, najprościej zrobić to poprzez wydanie polecenia "git pull". Dzięki temu mamy pewność, że pracujemy na aktualnej wersji kodu napędzającej produkcję.</p>
 <h3>Praca nad zadaniem</h3>
 <p>Od tej pory możemy pracować spokojnie nad zadaniem <em>task_1.</em> W razie potrzeby rozpoczęcia prac nad kolejnym zadaniem powtarzamy procedurę, tworząc nową gałąź i wychodząc ponownie z <em>master</em>'a. Warto w tym miejscu zaznaczyć, że nie należy traktować gita jako narzędzia do archiwizacji wersji kodu "co jakiś czas", "po skończeniu zadania" czy "na koniec dnia". Róbmy commity często, zawierajmy w nich niewielkie, spójne zmiany kodu oraz opatrzmy je krótkim, jasnym komentarzem. Jest to bardzo pomocne w przypadku, gdy zmiany z naszego zadania powodują powstanie błędów regresyjnych. Niewielkie, dobrze opisane commity pomogą odnaleźć dokładną wersję kodu powodującą powstanie błędu. Łatwiejsze będzie także zrozumienie przyczyny jego powstania i jej usunięcie.</p>
 <h3>Wgrywka na serwer testowy (opcjonalnie)</h3>
