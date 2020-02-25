@@ -9,8 +9,9 @@ tags:
 - basic auth
 - cookie
 - nginx
+- apache
 excerpt: How can you restrict an access to the dev/testing/pre-prod server in a
-  simple and effective way? What kind of authentication might be used for that
+  simple and effective way? What kind of authentication may be used for that
   purpose? Today I want to share few ideas with you!
 ---
 When you start a new project you often want to organize few separate instances
@@ -18,7 +19,7 @@ of the application, being accessible only for testers or end clients. By
 definition, they should be used to test and check the effects or your work.
 This is the moment when you need a knowledge about restricting access to these
 servers in a simple way. You need **the user authentication mechanism** enabled
-on your servers.
+on your dev/testing/pre-prod environments.
 
 ## Basic Access Authentication
 
@@ -26,8 +27,8 @@ So, in the simple words, a system popup window asking about a username and
 password when you try to reach an URL handled by your server. What's worth
 mentioning, this mechanism is a standard known to virtually every web browser.
 Seems to be too good to be true without any "buts"? You're right, there is one
-thing we need to remmeber while using it. The username and password are being sent
-encoded by the browser in base64. And nothing more. It means that this mechanism
+thing we need to remember while using it. The username and password being sent
+to server are encoded in base64. And nothing more. It means that this mechanism
 forces us to **enable HTTPS support on our server** and redirecting all HTTP
 requests to HTTPS. Why? Because the data sent through HTTP are not encrypted and
 the base64 encoding is very easy to revert (you can find
@@ -57,9 +58,9 @@ Now we can create proper file alongside with the first user:
 </pre>
 
 We'll be asked about entering its password and repeating. After confirming,
-the entry for new user will be ready to use :) The following users can be added
+the entry for new user will be ready to use :) Any other users can be added
 by just repeating the command above, but without the -c modifier. Its
-responsibility is to create a new file with the name given. An example content
+responsibility is to create a new file with the given name. An example content
 of such .htpasswd file looks like this:
 
 <pre>
@@ -69,9 +70,9 @@ of such .htpasswd file looks like this:
 
 ### Enabling auth mechanism in web server's configuration
 
-The next step is to enable this mechanism in used HTTP server. It can be Apache,
+The next step is to enable this mechanism in HTTP server. It can be Apache,
 it can be nginx or any other - for each of them this step will look different, so
-please carefully and read a proper documentation. In this post I'll show how to
+please carefully read and follow proper documentation. In this post I'll show how to
 enable Basic Access Authentication in Apache and nginx.
 
 #### Steps for Apache
@@ -102,7 +103,7 @@ The last step is to restart the server:
 #### Steps for nginx
 
 For nginx we need to add 2 entries to proper "location" section in configuration
-file: "auth_basic" and "auth_basic_user_file". THe .htpasswd file is located under
+file: "auth_basic" and "auth_basic_user_file". The .htpasswd file is located under
 /etc/nginx/conf.d/.htpasswd in this case:
 
 {% highlight nginx %}
@@ -126,8 +127,8 @@ Basic Access Authentication mechanism.
 As I wrote in the beginning, this method of restricting access to site has to be
 handled by HTTPS protocol. It means you have to obtain a valid SSL certificate
 and enable it in web server configuration. This isn't a topic of this post,
-nevertheless I'll show you at least how to redirect the network traffic from
-HTTP to HTTPS (an example for nginx):
+nevertheless I'll show you how to redirect the network traffic from HTTP
+to HTTPS (an example for nginx):
 
 {% highlight nginx %}
 server {
@@ -137,7 +138,7 @@ server {
 }
 {% endhighlight %}
 
-## Protip: session cookie as an alternative solution
+## Protip: session cookie as an competetive (???) solution
 
 An alternative to Basic Access Auth can be setting a special session cookie
 in the browser. Such file with specific content will be required to get access to
@@ -186,7 +187,7 @@ time the session cookie with proper name and value is not included in the reques
 
 ### Special authentication link
 
-Let's notice the method above can be quite inconvenient. It requires opening a
+Let's notice the method above is quite inconvenient for users. It requires opening a
 console every time we need to authenticate on server, which can be particuraly
 annoying for testers. Why? Because they often use the incognito mode of the
 browser, which creates a new session every time. In order to make their lifes
@@ -195,8 +196,8 @@ can be saved on a bookmark's bar, so after clicking it user will be automaticall
 authenticated on server.
 
 So let's create a separate URL on server and return HTML document, including a
-Java Script script which sets the cookie. We start with adding the
-"site_login.html" file, which should look more or less like this:
+JS script which sets the cookie. We start with adding the "site_login.html" file,
+which should look more or less like this:
 
 {% highlight html %}
 <html>
@@ -230,7 +231,7 @@ location /authentication_link_QRSvD44xNedyEeqmyGWtevidLbmeUG1NGaeVeEtJ.html {
 
 When we enter the special address (in this case /authentication_link_QRSvD44xNedyEeqmyGWtevidLbmeUG1NGaeVeEtJ.html), server returns
 a simple HTML document. The script included sets the authentication cookie and
-then redirects (the line window.location.replace) to the main page. Simple and
+then redirects (the line "window.location.replace") to the main page. Simple and
 convenient. Additionally we set a response header X-Robots-Tag with value
 "noindex, nofollow, nosnippet, noarchive". So even if some indexing robot will
 find our authentication URL, it won't save or index it in any way (or at least

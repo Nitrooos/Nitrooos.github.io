@@ -11,6 +11,7 @@ tags:
 - bezpieczeństwo
 - cookie
 - nginx
+- apache
 permalink: "/2019/04/mechanizm-uwierzytelniania-na-serwerach-przedprodukcyjnych/"
 excerpt: Jak prosto i skutecznie ograniczyć dostęp do naszego serwera testowego/przedprodukcyjnego?
   Zapraszam na garść szybkich pomysłów!

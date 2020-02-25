@@ -15,9 +15,9 @@ excerpt:
   works in Angular?
 ---
 One of my latest
-[post](/en/frontend/2020/02/auto-splitting-words-hyphenation){:target="_blank"}
+[posts](/en/frontend/2020/02/auto-splitting-words-hyphenation){:target="_blank"}
 was about hyphenation (valid in the grammatical sense splitting the words in
-syllables). The goal was there to acheived by implementing custom pipe, so the
+syllables). The goal there was acheived by implementing custom pipe, so the
 *HyphenatePipe* class. I decided to create a small appendix to that post,
 because the implementation provided there has some lacks. Keep calm, it's not a
 critical thing, but you can be frustrated when you'll find it by yourself ;)
@@ -33,8 +33,8 @@ of *HyphenatePipe* will consume less resources.
 ## How the pipe utility in Angular actually works?
 
 As you can read in the official
-[docs](https://angular.io/guide/pipes){:target="_blank"}, in Angular we can
-distinguish two types of pipes:
+[docs](https://angular.io/guide/pipes){:target="_blank"}, we can distinguish two
+types of pipes in Angular:
 
 * *pure pipe*, so the default one, by definition it doesn't contain any internal
 state, which results in using **one instance** for all usages in the same view.
@@ -57,7 +57,7 @@ need to think...
 
 ## What actually does the constructor of HyphenatePipe?
 
-It creates a new instance *Hypher* class (the *hyphenator* field). This
+It creates a new instance of *Hypher* class (the *hyphenator* field). This
 operation requires importing the proper language pattern for splitting the
 words and also parsing it. In the case of german language, the pattern is quite
 big (about 70kB of data), in general they can be from few to almost 100kB.
@@ -72,7 +72,7 @@ pattern file.
 ## HyphenatePipe problem solving
 
 The proper solution is of course to import the language pattern only once. We
-can acheive that by extracting the operation of creating the *Hypher* class
+can acheive that by extracting the operation of creating *Hypher* class
 object into a dedicated service. In our case it will be named
 *HyphenationPatternsService*. An implementation is fairly easy, I can post it
 in one piece of code:
