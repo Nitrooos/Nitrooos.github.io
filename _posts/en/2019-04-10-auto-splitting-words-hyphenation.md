@@ -1,13 +1,12 @@
 ---
 title: Hyphenation - automatic word splitting on syllables
-date: 2020-01-18 20:00:00.000000000 +02:00
+date: 2020-02-04 20:00:00.000000000 +02:00
 identifier: hyphenation
 categories:
 - en
 - frontend
 tags:
 - angular
-- code
 - hyphenate
 - pipe
 excerpt: Applications translated to some of the languages (e.g. Scandinavian,
