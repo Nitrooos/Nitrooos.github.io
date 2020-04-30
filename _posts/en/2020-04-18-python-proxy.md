@@ -284,6 +284,10 @@ can modify the content of the response, its status and headers if needed. Our
 @proxy is thus useful when you have to apply some transformations on received
 response.
 
+The final code can be read
+[here](https://gist.github.com/Nitrooos/161ccf1ac05d2e0e253a3fe0ff29d3f4){:target="_blank"},
+*@proxy_4* is the implementation described in this article.
+
 ## Summary
 
 Python makes it possible to create an useful decorator proxying HTTP requests to
