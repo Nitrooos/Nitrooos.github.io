@@ -1,6 +1,6 @@
 ---
 title: Using icons in your webapp - bitmaps, spritesheet or SVG?
-date: 2020-02-23 20:00:00.000000000 +02:00
+date: 2020-10-25 20:00:00.000000000 +02:00
 identifier: icons-internet-aplications
 categories:
 - en
