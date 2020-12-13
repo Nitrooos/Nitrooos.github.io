@@ -21,11 +21,11 @@ the references, not values. How did it "break" the detection mechanism?
 ## The example
 
 Let's say we have a @Input() property "items" defined in a component as an
-array of objects of type Items. Also, we try to detect changes of this property
+array of objects of type Item. Also, we try to detect changes of this property
 in ngOnChanges lifecycle hook:
 
 {% highlight typescript %}
-@Input() items: Items[];
+@Input() items: Item[];
 
 ngOnChanges(changes: SimpleChanges) {
   if (changes.items) {
@@ -114,7 +114,7 @@ application. If you ever really want to use it, then make sure the code in
 That's how the solution to the problem would look like using **ngDoCheck**:
 
 {% highlight typescript %}
-oldItems: Items[];
+oldItems: Item[];
 
 ngDoCheck() {
   let changeDetected = false;
