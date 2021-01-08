@@ -1,3 +1,29 @@
+{% assign privacy_policy_page = site.pages | where: "identifier", "privacy-policy" | where: "language", page.language | first %}
+<script>
+  const privacyPolicyParagraph = document.createElement("p");
+  privacyPolicyParagraph.classList.add("utterances__privacy-policy");
+  privacyPolicyParagraph.innerHTML = `
+    <em>
+      {{ site.data.translations[page.language].privacy_policy_1 }}
+      <a href="{{ privacy_policy_page.url }}">
+        {{ site.data.translations[page.language].privacy_policy_2 }}
+      </a>
+    </em>
+  `;
+
+  const commentsObserver = new MutationObserver(mutationList => {
+    for (let mutation of mutationList) {
+      for (let addedNode of mutation.addedNodes.values()) {
+        if (addedNode.classList && addedNode.classList.contains("utterances")) {
+          addedNode.appendChild(privacyPolicyParagraph);
+          commentsObserver.disconnect();
+        }
+      }
+    }
+  });
+  const mainElement = document.getElementsByTagName("main");
+  commentsObserver.observe(mainElement[0], { childList: true });
+</script>
 <script
   src="https://utteranc.es/client.js"
   repo="Nitrooos/nitrooos.github.io"
