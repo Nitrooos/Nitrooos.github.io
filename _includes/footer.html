@@ -1,0 +1,8 @@
+{% assign privacy_policy_page = site.pages | where: "identifier", "privacy-policy" | where: "language", page.language | first %}
+
+<footer>
+  <p class="creator">{{ 'now' | date: "%Y" }} nitrooos.pl |</p>
+  <a href="{{ privacy_policy_page.url }}">
+    {{ site.data.translations[page.language].privacy_policy }}
+  </a>
+</footer>
