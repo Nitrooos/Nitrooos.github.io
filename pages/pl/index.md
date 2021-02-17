@@ -6,11 +6,7 @@ permalink: '/'
 
 <aside class="authors__image">
   <figure>
-    <img
-      src="{{ site.baseurl }}/assets/img/nitrooos.png"
-      alt=""
-      width="188"
-      height="188" />
+    <img src="{{ site.baseurl }}/assets/img/nitrooos.png" alt="nitrooos zdjęcie" />
     <br />
   </figure>
 </aside>

@@ -9,10 +9,7 @@ permalink: /authors/nitrooos
 <aside class="authors__image">
   <figure>
     <img
-      src="{{ site.baseurl }}/assets/img/nitrooos.png"
-      alt=""
-      width="188"
-      height="188" />
+      src="{{ site.baseurl }}/assets/img/nitrooos.png" alt="nitrooos zdjęcie" />
     <br />
     <figcaption class="authors__image-caption">To ja!</figcaption>
   </figure>

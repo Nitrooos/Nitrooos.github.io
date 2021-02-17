@@ -7,10 +7,7 @@ permalink: '/en'
 <aside class="authors__image">
   <figure>
     <img
-      src="{{ site.baseurl }}/assets/img/nitrooos.png"
-      alt=""
-      width="188"
-      height="188" />
+      src="{{ site.baseurl }}/assets/img/nitrooos.png" alt="nitrooos portrait" />
     <br />
   </figure>
 </aside>
