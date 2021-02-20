@@ -17,14 +17,18 @@ permalink: /authors/nitrooos
 
 # Cześć! Jestem Nitrooos.
 
-<p>
-  Od niemal 6 lat zawodowo zajmuję się tworzeniem stron i aplikacji
-  internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać
-  sensowny frontend w Angularze/Vue.js/React, stworzyć logikę kodu backendowego w
-  Pythonie, podłubać w strukturze bazy danych czy posprzątać i umieścić
-  projektowy bałagan w eleganckich kontenerach. A do tego pamięta przesunąć
-  odpowedni "ticket" w Jirze ;)
-</p>
+Od niemal 6 lat zawodowo zajmuję się tworzeniem stron i aplikacji
+internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać
+sensowny frontend w Angularze/Vue.js/React, stworzyć logikę kodu backendowego w
+Pythonie, podłubać w strukturze bazy danych czy posprzątać i umieścić
+projektowy bałagan w eleganckich kontenerach. A do tego pamięta przesunąć
+odpowedni "ticket" w Jirze ;)
+
+# Działalność gospodarcza
+
+Prowadzę działalność gospodarczą o nazwie **"Nitrosoft&nbsp;Bartosz&nbsp;Kostaniak"**
+o numerze NIP&nbsp;7773290104, REGON&nbsp;367835571.
+
 # Doświadczenie
 
 Projekty, w których brałem udział w swojej pracy zawodowej:
@@ -39,34 +43,14 @@ przedsiębiorcom dla jednego z największych graczy sektora bankowego
 komunikujących się ze sobą, dla dużej firmy tradingowej
 * wpieranie dalszego rozwoju aplikacji webowej do analizy danych medycznych
 
-<p>
-  Aktualnie Senior Fullstack Superhero pilnujący porządku i czystości kodu jako
-  współpracownik
-  <strong>
-    <a
-      href="https://stxnext.com"
-      target="_blank">
-      STX Next
-    </a>
-  </strong>.
-  Pełną ścieżkę zawodową można prześledzić na
-  <a
-    href="https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/"
-    target="_blank">
-    <strong>LinkedIn</strong>
-  </a>.
-</p>
+Aktualnie Senior Fullstack Superhero pilnujący porządku i czystości kodu jako
+współpracownik [STX&nbsp;Next](https://stxnext.com){:target="_blank"}. Pełną
+ścieżkę zawodową można prześledzić na 
+[LinkedIn](https://www.linkedin.com/in/bartosz-kostaniak-623b8bb0/){:target="_blank"}.
+
 # Kilka słów o edukacji
-<p>
-  Dawno, dawno temu... ukończyłem studia magisterskie na kierunku informatyka
-  na
-  <strong>
-    <a
-      href="https://www.put.poznan.pl/"
-      target="_blank">
-      Politechnice Poznańskiej
-    </a>
-  </strong>
-  w ramach specjalności Systemy Rozproszone. A jeszcze dawniej studia
-  inżynierskie na tym samym kierunku i uczelni.
-</p>
+
+Dawno, dawno temu... ukończyłem studia magisterskie na kierunku informatyka
+na [Politechnice Poznańskiej](https://www.put.poznan.pl/){:target="_blank"}
+w ramach specjalności Systemy Rozproszone. A jeszcze dawniej studia
+inżynierskie na tym samym kierunku i uczelni.

@@ -22,6 +22,12 @@ Angular/Vue.js/React, create a backend code logic in Python, adjust the database
 structure or clean smelling code and pack it inside elegant containers.
 Beside that, what's most important, remembers to move a proper ticket in Jira ;)
 
+# Own business
+
+I have also own business named **"Nitrosoft&nbsp;Bartosz&nbsp;Kostaniak"**,
+registered in Poland with NIP&nbsp;code&nbsp;7773290104, 
+REGON&nbsp;code&nbsp;367835571.
+
 # Experience
 
 The projects I participated during my career as a software developer till now:
