@@ -27,9 +27,9 @@ permalink: /authors/nitrooos
 </p>
 # Doświadczenie
 
-Moja praca projektowa obejmuje m. in.
+Projekty, w których brałem udział w swojej pracy zawodowej:
 
-* rozbudowę i utrzymywanie aplikacji umożliwającej sprzedaż biletów na wydarzenia
+* rozbudowa i utrzymanie aplikacji umożliwającej sprzedaż biletów na wydarzenia
 teatralne, współpracującej z jedną z największych marek lotniczych
 * przepisanie aplikacji służącej do składania wniosków o finansowanie maszyn dla
 światowego lidera w produkcji narzędzi do przetwarzania metalu i jego obróbki laserowej
@@ -37,6 +37,7 @@ teatralne, współpracującej z jedną z największych marek lotniczych
 przedsiębiorcom dla jednego z największych graczy sektora bankowego
 * stworzenie od zera zbioru aplikacji desktopowych w środowisku OpenFin,
 komunikujących się ze sobą, dla dużej firmy tradingowej
+* wpieranie dalszego rozwoju aplikacji webowej do analizy danych medycznych
 
 <p>
   Aktualnie Senior Fullstack Superhero pilnujący porządku i czystości kodu jako
