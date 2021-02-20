@@ -6,20 +6,18 @@ permalink: '/en'
 
 <aside class="authors__image">
   <figure>
-    <img
-      src="{{ site.baseurl }}/assets/img/nitrooos.png"
-      alt=""
-      width="188"
-      height="188" />
+    <img src="{{ site.baseurl }}/assets/img/nitrooos.png" alt="nitrooos portrait" />
     <br />
   </figure>
 </aside>
 
 # Hi! I'm Nitrooos.
 
-From almost 5 years I have worked on creating websites and internet applications.
+From almost 6 years I have worked on creating websites and internet applications.
 Currently as a Senior Fullstack Developer in
-[STX&nbsp;Next](https://stxnext.com){:target="_blank"}.
+[STX&nbsp;Next](https://stxnext.com){:target="_blank"}. I have also own business
+named **"Nitrosoft&nbsp;Bartosz&nbsp;Kostaniak"**, registered in Poland with 
+NIP&nbsp;code&nbsp;7773290104, REGON&nbsp;code&nbsp;367835571.
 
 It's not surprising that I didn't find a time for creating a "super fancy"
 main page. At least, I created and still maintain a developer's

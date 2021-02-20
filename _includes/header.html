@@ -34,7 +34,9 @@
           {% assign alt_doc = site.pages | where: "identifier", "blog" | where: "language", alt_language | first %}
         {% endunless %}
 
-        <a href="{{ alt_doc.url }}" class="app__flag app__flag--{{ alt_doc.language }}"></a>
+        <a href="{{ alt_doc.url }}" class="app__flag">
+          <img src="{{ site.baseurl }}/assets/img/flags/{{ alt_doc.language }}.svg" alt="language flag" width="35">
+        </a>
       {% endif %}
     </nav>
   </div>

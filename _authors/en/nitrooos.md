@@ -8,10 +8,7 @@ permalink: /authors/en/nitrooos
 <aside class="authors__image">
   <figure>
     <img
-      src="{{ site.baseurl }}/assets/img/nitrooos.png"
-      alt=""
-      width="188"
-      height="188" />
+      src="{{ site.baseurl }}/assets/img/nitrooos.png" alt="nitrooos portrait" />
     <br />
     <figcaption class="authors__image-caption">It's me!</figcaption>
   </figure>
@@ -19,15 +16,21 @@ permalink: /authors/en/nitrooos
 
 # Hi! I’m Nitrooos.
 
-From almost 5 years I have worked on creating websites and internet applications.
+From almost 6 years I have worked on creating websites and internet applications.
 Usually as a Do-everything-man who can write a sensible frontend in
 Angular/Vue.js/React, create a backend code logic in Python, adjust the database
 structure or clean smelling code and pack it inside elegant containers.
 Beside that, what's most important, remembers to move a proper ticket in Jira ;)
 
+# Own business
+
+I have also own business named **"Nitrosoft&nbsp;Bartosz&nbsp;Kostaniak"**,
+registered in Poland with NIP&nbsp;code&nbsp;7773290104, 
+REGON&nbsp;code&nbsp;367835571.
+
 # Experience
 
-My project work consists of:
+The projects I participated during my career as a software developer till now:
 
 * developing and maintaining the application which makes it possible to sell
 tickets on theater events, cooperating with one of the biggest aviation brands
@@ -38,6 +41,8 @@ financing quotation for many different investment types for one of the biggest
 players in banking sector
 * creating from scratch a set of desktop applications in OpenFin environment,
 one communicating with each other, for a big trading company
+* supporting furter development of web application for statistical analysis of
+medical data
 
 Currently I'm a Senior Fullstack Superhero keeping an eye on code cleaningness
 as a contractor of [STX Next](https://stxnext.com){:target="_blank"}. My full
