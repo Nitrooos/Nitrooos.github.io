@@ -18,7 +18,7 @@ permalink: /authors/nitrooos
 # Cześć! Jestem Nitrooos.
 
 <p>
-  Od niemal 5 lat zawodowo zajmuję się tworzeniem stron i aplikacji
+  Od niemal 6 lat zawodowo zajmuję się tworzeniem stron i aplikacji
   internetowych. Zazwyczaj z pozycji Wszechogarniacza, który potrafi napisać
   sensowny frontend w Angularze/Vue.js/React, stworzyć logikę kodu backendowego w
   Pythonie, podłubać w strukturze bazy danych czy posprzątać i umieścić

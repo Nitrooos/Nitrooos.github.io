@@ -14,7 +14,7 @@ permalink: '/en'
 
 # Hi! I'm Nitrooos.
 
-From almost 5 years I have worked on creating websites and internet applications.
+From almost 6 years I have worked on creating websites and internet applications.
 Currently as a Senior Fullstack Developer in
 [STX&nbsp;Next](https://stxnext.com){:target="_blank"}.
 

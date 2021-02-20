@@ -13,7 +13,7 @@ permalink: '/'
 
 # Cześć! Jestem Nitrooos.
 
-Od niemal 5 lat zawodowo zajmuję się tworzeniem stron i aplikacji internetowych.
+Od niemal 6 lat zawodowo zajmuję się tworzeniem stron i aplikacji internetowych.
 Aktualnie jako Senior Fullstack Developer w
 <a href="https://stxnext.com" target="_blank">STX&nbsp;Next</a>.
 
