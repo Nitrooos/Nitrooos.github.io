@@ -12,7 +12,7 @@ tags:
 excerpt: 
   Do you wonder how to write a browser's extension? I too, so decided to learn
   it and share my experience in this topic with you. Let's start a mini cycle
-  about writing Chrome extension called Kayboard Navigator!
+  about writing Chrome extension called Keyboard Navigator!
 ---
 In my daily work as a web developer I spend much time (if not most) inside the
 browser's window. The problem I still have is navigating the page with keyboard
