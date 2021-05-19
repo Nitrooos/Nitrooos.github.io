@@ -101,4 +101,8 @@ the extension on always searches for the central clickable element on the page
 * pressing Shift + Enter should open link in a new tab
 * implement TypeScript support to make code more maintainable
 
+I even made a "Project" on Github with the
+[board](https://github.com/Nitrooos/keyboard-navigator/projects/1){:target="_blank"}
+containing the list of all such issues and their statuses!
+
 Stay tuned and wait for the next updates of the Keyboard Navigator development!
