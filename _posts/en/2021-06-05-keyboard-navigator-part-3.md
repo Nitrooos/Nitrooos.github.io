@@ -10,12 +10,12 @@ tags:
 - extension
 - keyboard-navigator
 excerpt:
-  Another update of Keyboard Navigator development process - this time I
-  finally made a transition from Vanilla JS to TypeScript as mentioned in the
+  Another update on Keyboard Navigator development process - this time I
+  finally made a transition from Vanilla JS into TypeScript as mentioned in the
   previous post. Also, pressing Ctrl + F doesn't show highlights anymore. Read
   to check the full update!
 ---
-The main chnage in May was the installation of TypeScript in the repository.
+The main change in May was the installation of TypeScript in the repository.
 I've also splitted the code into few modules so it's no more the whole logic
 stored in a single file.
 
@@ -50,22 +50,24 @@ is about splitting the code, located till now in a single file
 *contentScript.ts*. The code there has already been divided into few modules
 (in a sense of
 [JS module pattern](https://coryrylan.com/blog/javascript-module-pattern-basics){:target="_blank"})
-and I've reflected it when splitting the code into separate files.
+and it was reflected when splitting the code into separate files.
 
-Beside of that, I've added typing in the code, defined few models like
+Beside of that, I've added typing in the codebase, defined few models like
 *Highlight*, *Point* or *AppState*, so the project could actually benefit from
-installing TypeScript.
+TypeScript.
 
 ## Ignore key presses with modifiers
 
-Very small pull request containing 1 change: keydown events are handled by the
-extension only when there are no modifier keys (Alt, Ctrl, Meta or Shift)
-presses alongside with regular keys. Thanks to this change, when user presses
-e.g. Ctrl + F (search shortcut), no highlights are shown on the page.
+Very small
+[pull request](https://github.com/Nitrooos/keyboard-navigator/pull/7){:target="_blank"}
+containing 1 change: keydown events are handled by the extension only when
+there are no modifier keys (Alt, Ctrl, Meta or Shift) pressed alongside with
+regular keys. Thanks to this change, when user presses e.g. Ctrl + F (search
+shortcut), no highlights are shown on the page.
 
 ## What are the plans to do next?
 
-This time I didn't record any video, since the changes aren't mostly visible
+This time I didn't record any video, because the changes aren't mostly visible
 to the end user. But, I will summarize the plans for developing
 [Keyboard Navigator](https://github.com/Nitrooos/keyboard-navigator){:target="_blank"}
 in the following weeks:
